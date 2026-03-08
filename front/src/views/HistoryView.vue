@@ -39,7 +39,7 @@
             </div>
           </template>
           <el-empty v-if="!selectedTaskId" description="Select a task to view versions" />
-          <el-table v-else :data="versions" border height="560" @row-click="handleOpenVersion">
+          <el-table v-else :data="versions" border height="560">
             <el-table-column prop="versionNo" label="Version" width="90" />
             <el-table-column prop="safetyLevel" label="Safety" width="110" />
             <el-table-column prop="compileOk" label="Compile" width="100">
@@ -50,8 +50,11 @@
               </template>
             </el-table-column>
             <el-table-column prop="createdAt" label="Created At" min-width="180" />
-            <el-table-column label="Download" width="120">
+            <el-table-column label="Actions" width="180">
               <template #default="{ row }">
+                <el-button size="small" type="primary" @click.stop="handleOpenVersion(row)">
+                  Open
+                </el-button>
                 <el-button size="small" :disabled="!row.id" @click.stop="handleDownload(row.id)">
                   .vue
                 </el-button>
