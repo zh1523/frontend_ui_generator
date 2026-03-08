@@ -1,42 +1,52 @@
 <template>
   <div class="page">
+    <div class="page-head">
+      <h1 class="page-title">Generate Component</h1>
+      <p class="page-desc">Describe UI requirements, generate code with streaming output, then preview and download.</p>
+    </div>
     <el-row :gutter="16">
       <el-col :xs="24" :lg="10">
-        <el-card>
+        <el-card class="section-card left-card">
           <template #header>
-            <div class="card-header">Prompt to Component</div>
+            <div class="card-header accent-title">Prompt to Component</div>
           </template>
           <el-form label-position="top">
-            <el-form-item label="Component Name">
-              <el-input v-model="form.componentName" maxlength="80" />
-            </el-form-item>
-            <el-form-item label="Prompt">
-              <el-input
-                v-model="form.prompt"
-                type="textarea"
-                :rows="8"
-                maxlength="2000"
-                show-word-limit
-                placeholder="e.g. A user table with search box and pagination"
-              />
-            </el-form-item>
-            <el-form-item label="Constraints(JSON)">
-              <el-input
-                v-model="form.constraints"
-                type="textarea"
-                :rows="4"
-                placeholder='e.g. {"theme":"light","language":"zh-CN"}'
-              />
-            </el-form-item>
+            <div class="form-group subtle-card">
+              <el-form-item label="Component Name">
+                <el-input v-model="form.componentName" maxlength="80" />
+              </el-form-item>
+            </div>
+            <div class="form-group subtle-card">
+              <el-form-item label="Prompt">
+                <el-input
+                  v-model="form.prompt"
+                  type="textarea"
+                  :rows="8"
+                  maxlength="2000"
+                  show-word-limit
+                  placeholder="e.g. A user table with search box and pagination"
+                />
+              </el-form-item>
+            </div>
+            <div class="form-group subtle-card">
+              <el-form-item label="Constraints(JSON)">
+                <el-input
+                  v-model="form.constraints"
+                  type="textarea"
+                  :rows="4"
+                  placeholder='e.g. {"theme":"light","language":"zh-CN"}'
+                />
+              </el-form-item>
+            </div>
           </el-form>
           <div class="action-row">
-            <el-button type="primary" :loading="loading" @click="handleCreateAndStream">
+            <el-button class="btn-main" type="primary" :loading="loading" @click="handleCreateAndStream">
               Generate
             </el-button>
-            <el-button :disabled="!taskId || loading" @click="handleRegenerate">
+            <el-button class="btn-sub" :disabled="!taskId || loading" @click="handleRegenerate">
               Regenerate
             </el-button>
-            <el-button :disabled="!versionId" @click="handleDownload">Download .vue</el-button>
+            <el-button class="btn-sub" :disabled="!versionId" @click="handleDownload">Download .vue</el-button>
           </div>
           <el-alert
             v-if="errorMessage"
@@ -54,8 +64,8 @@
             show-icon
             class="status-box"
           />
-          <div class="stream-box">
-            <div class="stream-title">SSE Stream</div>
+          <div class="stream-box subtle-card">
+            <div class="stream-title accent-title">SSE Stream</div>
             <pre>{{ streamText || "Waiting for generation..." }}</pre>
           </div>
         </el-card>
@@ -279,13 +289,35 @@ function hydrateFormFromDraft() {
 
 <style scoped>
 .card-header {
-  font-weight: 600;
+  font-weight: 700;
+}
+
+.page-head {
+  margin-bottom: 14px;
+}
+
+.left-card {
+  min-height: 100%;
+}
+
+.form-group {
+  margin-bottom: 12px;
+  padding: 10px 12px 2px;
 }
 
 .action-row {
   display: flex;
   gap: 10px;
-  margin-top: 6px;
+  margin-top: 4px;
+}
+
+.btn-main {
+  min-width: 120px;
+}
+
+.btn-sub {
+  color: var(--ui-text-normal);
+  border-color: var(--ui-border);
 }
 
 .status-box {
@@ -294,15 +326,11 @@ function hydrateFormFromDraft() {
 
 .stream-box {
   margin-top: 12px;
-  border: 1px solid #ebeef5;
-  border-radius: 6px;
   padding: 8px;
-  background: #fafafa;
 }
 
 .stream-title {
   font-size: 13px;
-  font-weight: 600;
   margin-bottom: 6px;
 }
 
@@ -314,9 +342,16 @@ function hydrateFormFromDraft() {
   overflow: auto;
   font-family: "Consolas", "Courier New", monospace;
   font-size: 12px;
+  color: #18344c;
 }
 
 .preview-top {
   margin-top: 16px;
+}
+
+@media (max-width: 991px) {
+  .action-row {
+    flex-wrap: wrap;
+  }
 }
 </style>

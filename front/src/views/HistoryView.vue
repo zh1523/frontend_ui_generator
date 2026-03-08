@@ -1,12 +1,16 @@
 <template>
   <div class="page">
+    <div class="page-head">
+      <h1 class="page-title">History & Versions</h1>
+      <p class="page-desc">Select a task, browse version records, open a version in generator page, or download source file.</p>
+    </div>
     <el-row :gutter="16">
       <el-col :xs="24" :lg="12">
-        <el-card>
+        <el-card class="section-card content-card">
           <template #header>
             <div class="header-row">
-              <span>Tasks</span>
-              <el-button size="small" @click="loadTasks">Refresh</el-button>
+              <span class="accent-title">Tasks</span>
+              <el-button size="small" class="refresh-btn" @click="loadTasks">Refresh</el-button>
             </div>
           </template>
           <el-table :data="tasks" border height="560" @row-click="handleSelectTask">
@@ -31,11 +35,11 @@
         </el-card>
       </el-col>
       <el-col :xs="24" :lg="12">
-        <el-card>
+        <el-card class="section-card content-card">
           <template #header>
             <div class="header-row">
-              <span>Versions of Task #{{ selectedTaskId || "-" }}</span>
-              <el-tag type="info">Click row to open in Generator</el-tag>
+              <span class="accent-title">Versions of Task #{{ selectedTaskId || "-" }}</span>
+              <el-tag type="info">Use Open button to jump to Generator</el-tag>
             </div>
           </template>
           <el-empty v-if="!selectedTaskId" description="Select a task to view versions" />
@@ -52,10 +56,10 @@
             <el-table-column prop="createdAt" label="Created At" min-width="180" />
             <el-table-column label="Actions" width="180">
               <template #default="{ row }">
-                <el-button size="small" type="primary" @click.stop="handleOpenVersion(row)">
+                <el-button size="small" type="primary" class="open-btn" @click.stop="handleOpenVersion(row)">
                   Open
                 </el-button>
-                <el-button size="small" :disabled="!row.id" @click.stop="handleDownload(row.id)">
+                <el-button size="small" class="download-btn" :disabled="!row.id" @click.stop="handleDownload(row.id)">
                   .vue
                 </el-button>
               </template>
@@ -149,8 +153,31 @@ async function handlePageChange(value) {
   gap: 10px;
 }
 
+.page-head {
+  margin-bottom: 14px;
+}
+
+.content-card {
+  min-height: 646px;
+}
+
+.refresh-btn,
+.download-btn {
+  border-color: var(--ui-border);
+}
+
+.open-btn {
+  min-width: 60px;
+}
+
 .pager {
   margin-top: 12px;
   justify-content: flex-end;
+}
+
+@media (max-width: 991px) {
+  .content-card {
+    min-height: auto;
+  }
 }
 </style>

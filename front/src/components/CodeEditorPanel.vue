@@ -37,26 +37,45 @@ const lineCount = computed(() => {
 
 <style scoped>
 .panel {
-  border: 1px solid #dcdfe6;
-  border-radius: 8px;
+  border: 1px solid var(--ui-border-soft);
+  border-radius: var(--ui-radius-md);
   padding: 12px;
-  background: #fff;
+  background: var(--ui-card);
+  box-shadow: var(--ui-shadow-soft);
 }
 
 .panel-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--ui-border-soft);
 }
 
 .panel-header h3 {
   margin: 0;
   font-size: 15px;
+  font-weight: 700;
+  color: var(--ui-text-strong);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.panel-header h3::before {
+  content: "";
+  width: 4px;
+  height: 16px;
+  border-radius: 999px;
+  background: linear-gradient(180deg, var(--ui-primary), var(--ui-accent));
 }
 
 :deep(.code-input textarea) {
   font-family: "Consolas", "Courier New", monospace;
   font-size: 13px;
+  border-radius: var(--ui-radius-sm);
+  background: #f8fbff;
+  color: #17324a;
 }
 </style>

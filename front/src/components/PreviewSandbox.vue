@@ -183,36 +183,52 @@ const RESERVED_IDENTIFIERS = new Set([
 
 <style scoped>
 .panel {
-  border: 1px solid #dcdfe6;
-  border-radius: 8px;
+  border: 1px solid var(--ui-border-soft);
+  border-radius: var(--ui-radius-md);
   padding: 12px;
-  background: #fff;
+  background: var(--ui-card);
   min-height: 480px;
+  box-shadow: var(--ui-shadow-soft);
 }
 
 .panel-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--ui-border-soft);
 }
 
 .panel-header h3 {
   margin: 0;
   font-size: 15px;
+  font-weight: 700;
+  color: var(--ui-text-strong);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.panel-header h3::before {
+  content: "";
+  width: 4px;
+  height: 16px;
+  border-radius: 999px;
+  background: linear-gradient(180deg, var(--ui-primary), var(--ui-accent));
 }
 
 .empty {
-  color: #909399;
+  color: var(--ui-text-subtle);
   padding: 24px 0;
 }
 
 .preview-wrapper {
-  border: 1px dashed #c0c4cc;
-  border-radius: 6px;
+  border: 1px dashed #bfd8ec;
+  border-radius: var(--ui-radius-sm);
   min-height: 400px;
   padding: 12px;
-  background: #fcfcfc;
+  background: linear-gradient(180deg, #f8fbff, #f4fbff);
   overflow: auto;
 }
 </style>

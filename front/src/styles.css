@@ -1,7 +1,24 @@
 :root {
   font-family: "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
   line-height: 1.5;
-  color: #303133;
+  color: #1f2a3d;
+  --ui-primary: #2f7bff;
+  --ui-accent: #17b6a1;
+  --ui-bg: #f2f7fb;
+  --ui-bg-soft: #f8fbff;
+  --ui-card: #ffffff;
+  --ui-border: #d8e4ef;
+  --ui-border-soft: #e7eff7;
+  --ui-text-strong: #1f2a3d;
+  --ui-text-normal: #334155;
+  --ui-text-subtle: #6b7f95;
+  --ui-success: #21a779;
+  --ui-danger: #e1526e;
+  --ui-warning: #d58a16;
+  --ui-radius-md: 12px;
+  --ui-radius-sm: 8px;
+  --ui-shadow-card: 0 6px 18px rgba(24, 76, 120, 0.08);
+  --ui-shadow-soft: 0 3px 10px rgba(24, 76, 120, 0.05);
 }
 
 * {
@@ -11,10 +28,53 @@
 body {
   margin: 0;
   min-width: 360px;
-  background: #f5f7fa;
+  background: radial-gradient(circle at top right, rgba(47, 123, 255, 0.08), transparent 32%),
+    radial-gradient(circle at top left, rgba(23, 182, 161, 0.1), transparent 35%), var(--ui-bg);
+  color: var(--ui-text-normal);
 }
 
 .page {
-  max-width: 1400px;
-  margin: 0 auto;
+  width: 100%;
+}
+
+.page-title {
+  margin: 0 0 4px;
+  font-size: 24px;
+  line-height: 1.25;
+  color: var(--ui-text-strong);
+  letter-spacing: 0.2px;
+}
+
+.page-desc {
+  margin: 0 0 14px;
+  color: var(--ui-text-subtle);
+  font-size: 14px;
+}
+
+.section-card {
+  border-radius: var(--ui-radius-md);
+  border: 1px solid var(--ui-border-soft);
+  box-shadow: var(--ui-shadow-card);
+}
+
+.subtle-card {
+  border-radius: var(--ui-radius-sm);
+  border: 1px solid var(--ui-border);
+  background: var(--ui-bg-soft);
+}
+
+.accent-title {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 700;
+  color: var(--ui-text-strong);
+}
+
+.accent-title::before {
+  content: "";
+  width: 4px;
+  height: 16px;
+  border-radius: 99px;
+  background: linear-gradient(180deg, var(--ui-primary), var(--ui-accent));
 }

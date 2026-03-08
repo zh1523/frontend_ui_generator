@@ -1,14 +1,21 @@
 <template>
   <el-container class="app-shell">
     <el-header class="app-header">
-      <div class="brand">UI Component Generator</div>
-      <el-menu mode="horizontal" :ellipsis="false" :default-active="activeMenu" router>
-        <el-menu-item index="/">Generate</el-menu-item>
-        <el-menu-item index="/history">History</el-menu-item>
-      </el-menu>
+      <div class="header-inner">
+        <div class="brand">
+          <div class="brand-title">UI Component Generator</div>
+          <div class="brand-subtitle">Natural language to Vue component workflow</div>
+        </div>
+        <el-menu class="main-menu" mode="horizontal" :ellipsis="false" :default-active="activeMenu" router>
+          <el-menu-item index="/">Generate</el-menu-item>
+          <el-menu-item index="/history">History</el-menu-item>
+        </el-menu>
+      </div>
     </el-header>
     <el-main class="app-main">
-      <router-view />
+      <div class="main-inner">
+        <router-view />
+      </div>
     </el-main>
   </el-container>
 </template>
@@ -32,19 +39,67 @@ const activeMenu = computed(() => {
 }
 
 .app-header {
+  border-bottom: 1px solid var(--ui-border-soft);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(246, 250, 255, 0.96));
+  backdrop-filter: blur(6px);
+  height: 72px;
+  display: flex;
+  align-items: center;
+}
+
+.header-inner {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 18px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-bottom: 1px solid #ebeef5;
-  background: #fff;
+  gap: 16px;
 }
 
-.brand {
+.brand-title {
   font-size: 18px;
-  font-weight: 600;
+  line-height: 1.2;
+  font-weight: 700;
+  color: var(--ui-text-strong);
 }
 
-.app-main {
-  background: #f5f7fa;
+.brand-subtitle {
+  margin-top: 2px;
+  font-size: 12px;
+  color: var(--ui-text-subtle);
+}
+
+:deep(.main-menu.el-menu) {
+  border-bottom: none;
+  background: transparent;
+}
+
+:deep(.main-menu .el-menu-item) {
+  border-bottom-width: 3px;
+}
+
+.main-inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 16px 18px 24px;
+}
+
+@media (max-width: 768px) {
+  .app-header {
+    height: auto;
+    min-height: 72px;
+    padding: 8px 0;
+  }
+
+  .header-inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .main-inner {
+    padding: 12px;
+  }
 }
 </style>
