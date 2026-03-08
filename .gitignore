@@ -1,0 +1,17 @@
+# frontend
+front/node_modules/
+front/dist/
+
+# backend
+back/target/
+
+# env
+.env
+*.local
+back/.env
+front/.env
+
+# IDE
+.idea/
+.vscode/
+*.iml

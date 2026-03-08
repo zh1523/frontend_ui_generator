@@ -1,0 +1,36 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: uigen-backend
+  datasource:
+    url: jdbc:mysql://localhost:3306/uigen?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
+    username: uigen_app
+    password: uigen_app_123456
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        format_sql: true
+    open-in-view: false
+  jackson:
+    serialization:
+      write-dates-as-timestamps: false
+
+app:
+  cors:
+    allowed-origins: http://localhost:5173
+  llm:
+    base-url: https://dashscope.aliyuncs.com/compatible-mode/v1
+    api-key: sk-91a5626126f44a6e91677fb1745e3d01
+    model: qwen3.5-flash
+    timeout-ms: 60000
+  generation:
+    max-prompt-length: 2000
+    max-component-name-length: 80
+
+logging:
+  level:
+    com.example.uigen: INFO
