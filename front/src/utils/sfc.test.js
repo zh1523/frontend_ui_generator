@@ -27,4 +27,20 @@ const msg = 'hello';
     expect(state.count).toBe(1);
     expect(state.title).toBe("demo");
   });
+
+  it("extracts array/object demo data from ref", () => {
+    const script = `
+<script setup>
+const books = ref([
+  { id: 1, title: '三体', price: 89.0, status: 'available' },
+  { id: 2, title: '人类简史', price: 68.0, status: 'borrowed' }
+]);
+</script>
+`;
+    const state = extractSimpleState(script);
+    expect(Array.isArray(state.books)).toBe(true);
+    expect(state.books.length).toBe(2);
+    expect(state.books[0].price).toBe(89);
+    expect(state.books[1].title).toBe("人类简史");
+  });
 });

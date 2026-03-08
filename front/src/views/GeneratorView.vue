@@ -1,4 +1,4 @@
-<template>
+﻿<template>
   <div class="page">
     <el-row :gutter="16">
       <el-col :xs="24" :lg="10">
@@ -6,12 +6,14 @@
           <template #header>
             <div class="card-header accent-title">描述生成组件</div>
           </template>
+
           <el-form label-position="top">
             <div class="form-group subtle-card">
               <el-form-item label="组件名称">
                 <el-input v-model="form.componentName" maxlength="80" />
               </el-form-item>
             </div>
+
             <div class="form-group subtle-card">
               <el-form-item label="需求描述">
                 <el-input
@@ -24,6 +26,7 @@
                 />
               </el-form-item>
             </div>
+
             <div class="form-group subtle-card">
               <el-form-item label="约束(JSON)">
                 <el-input
@@ -34,7 +37,15 @@
                 />
               </el-form-item>
             </div>
+
+            <div class="form-group subtle-card">
+              <el-form-item label="演示数据">
+                <el-switch v-model="form.includeDemoData" />
+                <div class="form-hint">开启后会要求模型注入硬编码示例数据，预览效果更直观。</div>
+              </el-form-item>
+            </div>
           </el-form>
+
           <div class="action-row">
             <el-button class="btn-main" type="primary" :loading="loading" @click="handleCreateAndStream">
               生成
@@ -44,6 +55,7 @@
             </el-button>
             <el-button class="btn-sub" :disabled="!versionId" @click="handleDownload">下载 .vue</el-button>
           </div>
+
           <el-alert
             v-if="errorMessage"
             type="error"
@@ -60,12 +72,14 @@
             show-icon
             class="status-box"
           />
+
           <div class="stream-box subtle-card">
             <div class="stream-title accent-title">流式输出</div>
             <pre>{{ streamText || "等待生成中..." }}</pre>
           </div>
         </el-card>
       </el-col>
+
       <el-col :xs="24" :lg="14">
         <el-row :gutter="16">
           <el-col :span="24">
@@ -105,7 +119,8 @@ const router = useRouter();
 const form = reactive({
   prompt: "",
   componentName: "UserTable",
-  constraints: "{}"
+  constraints: "{}",
+  includeDemoData: true
 });
 
 const taskId = ref(null);
@@ -132,9 +147,9 @@ onMounted(async () => {
 });
 
 watch(
-  () => [form.prompt, form.componentName, form.constraints],
-  ([prompt, componentName, constraints]) => {
-    generatorDraftStore.saveDraft({ prompt, componentName, constraints });
+  () => [form.prompt, form.componentName, form.constraints, form.includeDemoData],
+  ([prompt, componentName, constraints, includeDemoData]) => {
+    generatorDraftStore.saveDraft({ prompt, componentName, constraints, includeDemoData });
   }
 );
 
@@ -154,6 +169,7 @@ async function initFromQuery() {
     if (task.constraints) {
       form.constraints = task.constraints;
     }
+    form.includeDemoData = task.includeDemoData !== false;
   }
 
   if (queryVersionId) {
@@ -186,7 +202,8 @@ async function handleCreateAndStream() {
     const created = await createGenerationTask(workspaceStore.workspaceKey, {
       prompt: form.prompt,
       componentName: form.componentName,
-      constraints: form.constraints
+      constraints: form.constraints,
+      includeDemoData: form.includeDemoData
     });
     taskId.value = created.taskId;
     await startStream(created.taskId);
@@ -280,6 +297,7 @@ function hydrateFormFromDraft() {
   form.prompt = generatorDraftStore.prompt;
   form.componentName = generatorDraftStore.componentName;
   form.constraints = generatorDraftStore.constraints;
+  form.includeDemoData = generatorDraftStore.includeDemoData !== false;
 }
 </script>
 
@@ -295,6 +313,12 @@ function hydrateFormFromDraft() {
 .form-group {
   margin-bottom: 12px;
   padding: 10px 12px 2px;
+}
+
+.form-hint {
+  margin-top: 8px;
+  font-size: 12px;
+  color: var(--ui-text-muted);
 }
 
 .action-row {

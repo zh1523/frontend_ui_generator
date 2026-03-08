@@ -1,0 +1,192 @@
+\begin{thebibliography}{27}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{#1}
+\expandafter\ifx\csname urlstyle\endcsname\relax\else
+  \urlstyle{same}\fi
+\expandafter\ifx\csname href\endcsname\relax
+  \DeclareUrlCommand\doi{\urlstyle{rm}}
+  \def\eprint#1#2{#2}
+\else
+  \def\doi#1{\href{https://doi.org/#1}{\nolinkurl{#1}}}
+  \let\eprint\href
+\fi
+
+\bibitem[Jimenez et~al.(2024)Jimenez, Yang, Wettig, Yao, Pei, Press,
+  Narasimhan, et~al.]{jimenez2024swebench}
+JIMENEZ C~E, YANG J, WETTIG A, et~al.
+\newblock SWE-bench: can language models resolve real-world GitHub
+  issues?\allowbreak[A/OL].
+\newblock arXiv (2024).
+\newblock \url{https://arxiv.org/abs/2310.06770}.
+
+\bibitem[{Vercel}(2026)]{vercel2026newv0}
+{Vercel}.
+\newblock Introducing the new v0\allowbreak[EB/OL].
+\newblock 2026.
+\newblock \url{https://vercel.com/blog/introducing-the-new-v0}, Accessed:
+  2026-04-22.
+
+\bibitem[{All Hands AI}(2026)]{openhands2026github}
+{All Hands AI}.
+\newblock OpenHands: AI-driven development\allowbreak[EB/OL].
+\newblock 2026.
+\newblock \url{https://github.com/All-Hands-AI/OpenHands}, Accessed:
+  2026-04-22.
+
+\bibitem[{NIST}(2024)]{nistssdf2024}
+{NIST}.
+\newblock Secure software development framework (SSDF) version
+  1.1\allowbreak[EB/OL].
+\newblock 2024.
+\newblock \url{https://csrc.nist.gov/Projects/ssdf}, Accessed: 2026-04-20.
+
+\bibitem[Yang et~al.(2024)Yang, Jimenez, Wettig, Lieret, Yao, Pei, Press,
+  Narasimhan, et~al.]{yang2024sweagent}
+YANG J, JIMENEZ C~E, WETTIG A, et~al.
+\newblock SWE-agent: agent-computer interfaces enable automated software
+  engineering\allowbreak[A/OL].
+\newblock arXiv (2024).
+\newblock \url{https://arxiv.org/abs/2405.15793}.
+
+\bibitem[Si et~al.(2024)Si, Wang, Yang, et~al.]{si2024design2code}
+SI C, WANG Y, YANG Y, et~al.
+\newblock Design2Code: how far are we from automating front-end
+  engineering?\allowbreak[A/OL].
+\newblock arXiv (2024).
+\newblock \url{https://arxiv.org/abs/2403.03163}.
+
+\bibitem[{Vue Team}(2025)]{vuedocs2025}
+{Vue Team}.
+\newblock Vue.js documentation\allowbreak[EB/OL].
+\newblock 2025.
+\newblock \url{https://vuejs.org/guide/introduction.html}, Accessed:
+  2026-04-20.
+
+\bibitem[{Vite Team}(2025)]{vitedocs2025}
+{Vite Team}.
+\newblock Vite documentation\allowbreak[EB/OL].
+\newblock 2025.
+\newblock \url{https://vite.dev/guide/}, Accessed: 2026-04-20.
+
+\bibitem[{Element Plus Team}(2025)]{elementplusdocs2025}
+{Element Plus Team}.
+\newblock Element plus documentation\allowbreak[EB/OL].
+\newblock 2025.
+\newblock \url{https://element-plus.org/}, Accessed: 2026-04-20.
+
+\bibitem[{Pinia Team}(2025)]{piniadocs2025}
+{Pinia Team}.
+\newblock Pinia documentation\allowbreak[EB/OL].
+\newblock 2025.
+\newblock \url{https://pinia.vuejs.org/}, Accessed: 2026-04-20.
+
+\bibitem[{VMware}(2025)]{springbootdocs2025}
+{VMware}.
+\newblock Spring boot reference documentation\allowbreak[EB/OL].
+\newblock 2025.
+\newblock
+  \url{https://docs.spring.io/spring-boot/docs/current/reference/html/},
+  Accessed: 2026-04-20.
+
+\bibitem[{OpenAI}(2023)]{openai2023gpt4}
+{OpenAI}.
+\newblock GPT-4 technical report\allowbreak[A/OL].
+\newblock arXiv (2023).
+\newblock \url{https://arxiv.org/abs/2303.08774}.
+
+\bibitem[Bai et~al.(2023)Bai, Bai, Chu, Cui, Dang, Deng, et~al.]{bai2023qwen}
+BAI J, BAI S, CHU Y, et~al.
+\newblock Qwen technical report\allowbreak[A/OL].
+\newblock arXiv (2023).
+\newblock \url{https://arxiv.org/abs/2309.16609}.
+
+\bibitem[Roziere et~al.(2023)Roziere, Gehring, Gloeckle, Sootla, Gat, Tan,
+  et~al.]{roziere2023codellama}
+ROZIERE B, GEHRING J, GLOECKLE F, et~al.
+\newblock Code llama: open foundation models for code\allowbreak[A/OL].
+\newblock arXiv (2023).
+\newblock \url{https://arxiv.org/abs/2308.12950}.
+
+\bibitem[Li et~al.(2023)Li, Allal, De~Mazieres, Mou, Oberle, Yao,
+  et~al.]{li2023starcoder}
+LI R, ALLAL L~B, DE~MAZIERES A, et~al.
+\newblock StarCoder: may the source be with you!\allowbreak[J].
+\newblock Transactions on Machine Learning Research, 2023.
+
+\bibitem[{MITRE}(2024)]{cwe2024top25}
+{MITRE}.
+\newblock CWE top 25 most dangerous software weaknesses\allowbreak[EB/OL].
+\newblock 2024.
+\newblock \url{https://cwe.mitre.org/top25/}, Accessed: 2026-04-20.
+
+\bibitem[Fielding(2000)]{fielding2000rest}
+FIELDING R~T.
+\newblock Architectural styles and the design of network-based software
+  architectures\allowbreak[D].
+\newblock University of California, Irvine, 2000.
+
+\bibitem[{W3C}(2021)]{w3c_eventsource}
+{W3C}.
+\newblock Server-sent events\allowbreak[EB/OL].
+\newblock 2021.
+\newblock \url{https://html.spec.whatwg.org/multipage/server-sent-events.html},
+  Accessed: 2026-04-20.
+
+\bibitem[{Oracle}(2025)]{mysqldocs2025}
+{Oracle}.
+\newblock MySQL 8.0 reference manual\allowbreak[EB/OL].
+\newblock 2025.
+\newblock \url{https://dev.mysql.com/doc/refman/8.0/en/}, Accessed: 2026-04-20.
+
+\bibitem[{国家市场监督管理总局}(2019)]{gbt22239_2019}
+{国家市场监督管理总局}.
+\newblock GB/T 22239-2019 信息安全技术
+  网络安全等级保护基本要求\allowbreak[Z].
+\newblock 2019.
+
+\bibitem[{OWASP Foundation}(2021)]{owasp2021top10}
+{OWASP Foundation}.
+\newblock OWASP top 10: the ten most critical web application security
+  risks\allowbreak[EB/OL].
+\newblock 2021.
+\newblock \url{https://owasp.org/www-project-top-ten/}, Accessed: 2026-04-20.
+
+\bibitem[{国家市场监督管理总局}(2020)]{gbt35273_2020}
+{国家市场监督管理总局}.
+\newblock GB/T 35273-2020 信息安全技术
+  个人信息安全规范\allowbreak[Z].
+\newblock 2020.
+
+\bibitem[{Oracle}(2025)]{oraclejava17docs2025}
+{Oracle}.
+\newblock Java SE 17 documentation\allowbreak[EB/OL].
+\newblock 2025.
+\newblock \url{https://docs.oracle.com/en/java/javase/17/}, Accessed:
+  2026-04-20.
+
+\bibitem[{JUnit Team}(2025)]{junit5docs2025}
+{JUnit Team}.
+\newblock JUnit 5 user guide\allowbreak[EB/OL].
+\newblock 2025.
+\newblock \url{https://junit.org/junit5/docs/current/user-guide/}, Accessed:
+  2026-04-20.
+
+\bibitem[{Vitest Team}(2025)]{vitestdocs2025}
+{Vitest Team}.
+\newblock Vitest guide\allowbreak[EB/OL].
+\newblock 2025.
+\newblock \url{https://vitest.dev/guide/}, Accessed: 2026-04-20.
+
+\bibitem[{国家质量监督检验检疫总局}(2016)]{gbt25000_2016}
+{国家质量监督检验检疫总局}.
+\newblock GB/T 25000.10-2016 系统与软件工程
+  系统与软件质量要求和评价(SQuaRE)
+  第10部分：系统与软件质量模型\allowbreak[Z].
+\newblock 2016.
+
+\bibitem[{国家互联网信息办公室等七部门}(2023)]{cac2023_genai}
+{国家互联网信息办公室等七部门}.
+\newblock 生成式人工智能服务管理暂行办法\allowbreak[Z].
+\newblock 2023.
+
+\end{thebibliography}

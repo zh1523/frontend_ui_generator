@@ -30,6 +30,13 @@ app:
   generation:
     max-prompt-length: 2000
     max-component-name-length: 80
+    cache-ttl-minutes: 30
+  auth:
+    session-ttl-hours: 72
+  cost:
+    daily-token-quota: 100000
+    input-cost-per1k-token-usd: 0.0002
+    output-cost-per1k-token-usd: 0.0005
 
 logging:
   level:

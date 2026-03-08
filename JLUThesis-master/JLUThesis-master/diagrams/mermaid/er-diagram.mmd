@@ -1,0 +1,20 @@
+%%{init: {"theme":"neutral"}}%%
+erDiagram
+    APP_USER ||--o{ USER_SESSION : "1:N"
+    APP_USER ||--o{ WORKSPACE : "1:N"
+    APP_USER ||--o{ PROJECT_SPACE : "1:N"
+    APP_USER ||--o{ AUDIT_LOG : "1:N"
+    WORKSPACE ||--|| PROJECT_SPACE : "1:1"
+    WORKSPACE ||--o{ GENERATION_TASK : "1:N"
+    PROJECT_SPACE ||--o{ GENERATION_TASK : "1:N"
+    GENERATION_TASK ||--o{ COMPONENT_VERSION : "1:N"
+    GENERATION_TASK ||--o{ LLM_CALL_LOG : "1:N"
+
+    APP_USER
+    USER_SESSION
+    WORKSPACE
+    PROJECT_SPACE
+    GENERATION_TASK
+    COMPONENT_VERSION
+    LLM_CALL_LOG
+    AUDIT_LOG

@@ -85,11 +85,54 @@ function parseLiteral(raw) {
     try {
       return JSON.parse(text.replaceAll("'", '"'));
     } catch (_) {
-      return undefined;
+      return parseJsLikeLiteral(text);
     }
   }
   if (text === "null") {
     return null;
   }
   return undefined;
+}
+
+function parseJsLikeLiteral(source) {
+  if (!source || !isBracketBalanced(source)) {
+    return undefined;
+  }
+  if (/[;]|=>/.test(source)) {
+    return undefined;
+  }
+  if (/\b(function|class|new|this|window|document|globalThis|fetch|XMLHttpRequest|WebSocket|import|export|eval)\b/.test(source)) {
+    return undefined;
+  }
+  try {
+    // Parse plain JS object/array literals used in generated demo data.
+    return Function(`"use strict"; return (${source});`)();
+  } catch (_) {
+    return undefined;
+  }
+}
+
+function isBracketBalanced(text) {
+  let round = 0;
+  let square = 0;
+  let curly = 0;
+  for (const ch of text) {
+    if (ch === "(") {
+      round += 1;
+    } else if (ch === ")") {
+      round -= 1;
+    } else if (ch === "[") {
+      square += 1;
+    } else if (ch === "]") {
+      square -= 1;
+    } else if (ch === "{") {
+      curly += 1;
+    } else if (ch === "}") {
+      curly -= 1;
+    }
+    if (round < 0 || square < 0 || curly < 0) {
+      return false;
+    }
+  }
+  return round === 0 && square === 0 && curly === 0;
 }

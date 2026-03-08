@@ -1,0 +1,34 @@
+%%{init: {"theme":"neutral","flowchart":{"curve":"linear"}}}%%
+flowchart LR
+    U[浏览器用户]
+    R[Vue Router + Pinia]
+    P[页面与组件\nLogin/Generator/History/Admin]
+    API[apiRequest + streamSse]
+    HTTP[HTTP / SSE 请求]
+    CTL[Spring Boot Controllers]
+    INT[AuthInterceptor]
+    SRV[业务服务层]
+    GEN[GenerationStreamService]
+    AUX[Extractor / Safety / Cache / RateLimiter]
+    LLM[QwenLlmClient]
+    REPO[JPA Repository]
+    DB[(MySQL)]
+
+    U --> P
+    P --> R
+    R --> API
+    API --> HTTP
+    HTTP --> CTL
+    CTL --> INT
+    INT --> SRV
+    SRV --> GEN
+    GEN --> AUX
+    GEN --> LLM
+    SRV --> REPO
+    AUX --> REPO
+    REPO --> DB
+    LLM --> GEN
+    GEN --> CTL
+    CTL --> HTTP
+    HTTP --> API
+    API --> P

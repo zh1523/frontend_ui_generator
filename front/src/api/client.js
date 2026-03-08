@@ -1,10 +1,20 @@
 const API_BASE = import.meta.env.VITE_API_BASE || "http://localhost:8080/api/v1";
+const AUTH_TOKEN_KEY = "uigen_auth_token";
+const PROJECT_ID_KEY = "uigen_project_id";
 
 export async function apiRequest(path, options = {}) {
   const { method = "GET", body, workspaceKey, headers = {}, responseType = "json" } = options;
   const finalHeaders = {
     ...headers
   };
+  const authToken = localStorage.getItem(AUTH_TOKEN_KEY) || "";
+  const projectId = localStorage.getItem(PROJECT_ID_KEY) || "";
+  if (authToken && !finalHeaders["X-Auth-Token"]) {
+    finalHeaders["X-Auth-Token"] = authToken;
+  }
+  if (projectId && !finalHeaders["X-Project-Id"]) {
+    finalHeaders["X-Project-Id"] = projectId;
+  }
   if (workspaceKey) {
     finalHeaders["X-Workspace-Key"] = workspaceKey;
   }
@@ -38,11 +48,15 @@ export async function apiRequest(path, options = {}) {
 }
 
 export async function streamSse(path, { workspaceKey, onEvent, signal }) {
+  const authToken = localStorage.getItem(AUTH_TOKEN_KEY) || "";
+  const projectId = localStorage.getItem(PROJECT_ID_KEY) || "";
   const response = await fetch(`${API_BASE}${path}`, {
     method: "GET",
     headers: {
       Accept: "text/event-stream",
-      "X-Workspace-Key": workspaceKey
+      "X-Workspace-Key": workspaceKey,
+      ...(authToken ? { "X-Auth-Token": authToken } : {}),
+      ...(projectId ? { "X-Project-Id": projectId } : {})
     },
     signal
   });

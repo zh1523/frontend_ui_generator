@@ -1,0 +1,48 @@
+﻿@startuml
+left to right direction
+skinparam shadowing false
+skinparam dpi 180
+skinparam defaultFontName Microsoft YaHei
+skinparam packageStyle rectangle
+skinparam actorStyle awesome
+skinparam usecase {
+  BackgroundColor white
+  BorderColor #5A6778
+  ArrowColor #7A8591
+}
+skinparam rectangle {
+  BorderColor #5A6778
+  BackgroundColor #F6F7F9
+}
+actor 普通用户 as User
+actor 管理员 as Admin
+User -[hidden]down- Admin
+rectangle "UI组件代码生成系统" {
+  usecase "注册与登录" as UC1
+  usecase "项目管理" as UC2
+  usecase "组件生成" as UC3
+  usecase "结果查看" as UC4
+  usecase "历史版本查询" as UC5
+  usecase "在线预览与下载" as UC6
+  usecase "用量查看" as UC7
+  usecase "用户治理与审计" as UC8
+  UC1 -[hidden]right- UC2
+  UC3 -[hidden]right- UC4
+  UC5 -[hidden]right- UC6
+  UC7 -[hidden]right- UC8
+  UC1 -[hidden]down- UC3
+  UC3 -[hidden]down- UC5
+  UC5 -[hidden]down- UC7
+  UC2 -[hidden]down- UC4
+  UC4 -[hidden]down- UC6
+  UC6 -[hidden]down- UC8
+}
+User -- UC1
+User -- UC2
+User -- UC3
+User -- UC4
+User -- UC5
+User -- UC6
+User -- UC7
+Admin -- UC8
+@enduml

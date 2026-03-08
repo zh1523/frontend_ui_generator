@@ -1,0 +1,1727 @@
+This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex 2026.4.18)  26 APR 2026 19:18
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**main.tex
+(./main.tex
+LaTeX2e <2025-11-01>
+L3 programming layer <2026-03-20>
+(./JLUThesis.cls
+Document Class: JLUThesis 2023/05/17 v1.3 jilin University Thesis document clas
+s
+(d:/texlive/2026/texmf-dist/tex/latex/ctex/ctexbook.cls
+(d:/texlive/2026/texmf-dist/tex/latex/ctex/config/ctexbackend.cfg
+File: ctexbackend.cfg 2022/07/14 v2.5.10 Backend configuration file (CTEX)
+)
+(d:/texlive/2026/texmf-dist/tex/latex/l3kernel/expl3.sty
+Package: expl3 2026-03-20 L3 programming layer (loader) 
+
+(d:/texlive/2026/texmf-dist/tex/latex/l3backend/l3backend-xetex.def
+File: l3backend-xetex.def 2026-02-18 L3 backend support: XeTeX
+\g__graphics_track_int=\count271
+\g__pdfannot_backend_int=\count272
+\g__pdfannot_backend_link_int=\count273
+))
+Document Class: ctexbook 2022/07/14 v2.5.10 Chinese adapter for class book (CTE
+X)
+(d:/texlive/2026/texmf-dist/tex/latex/ctex/ctexhook.sty
+Package: ctexhook 2022/07/14 v2.5.10 Document and package hooks (CTEX)
+)
+(d:/texlive/2026/texmf-dist/tex/latex/ctex/ctexpatch.sty
+Package: ctexpatch 2022/07/14 v2.5.10 Patching commands (CTEX)
+)
+(d:/texlive/2026/texmf-dist/tex/latex/base/fix-cm.sty
+Package: fix-cm 2020/11/24 v1.1t fixes to LaTeX
+
+(d:/texlive/2026/texmf-dist/tex/latex/base/ts1enc.def
+File: ts1enc.def 2001/06/05 v3.0e (jk/car/fm) Standard LaTeX file
+LaTeX Font Info:    Redeclaring font encoding TS1 on input line 47.
+LaTeX Encoding Info:    Redeclaring text command \capitalcedilla (encoding TS1)
+ on input line 49.
+LaTeX Encoding Info:    Redeclaring text command \capitalogonek (encoding TS1) 
+on input line 52.
+LaTeX Encoding Info:    Redeclaring text command \capitalgrave (encoding TS1) o
+n input line 55.
+LaTeX Encoding Info:    Redeclaring text command \capitalacute (encoding TS1) o
+n input line 56.
+LaTeX Encoding Info:    Redeclaring text command \capitalcircumflex (encoding T
+S1) on input line 57.
+LaTeX Encoding Info:    Redeclaring text command \capitaltilde (encoding TS1) o
+n input line 58.
+LaTeX Encoding Info:    Redeclaring text command \capitaldieresis (encoding TS1
+) on input line 59.
+LaTeX Encoding Info:    Redeclaring text command \capitalhungarumlaut (encoding
+ TS1) on input line 60.
+LaTeX Encoding Info:    Redeclaring text command \capitalring (encoding TS1) on
+ input line 61.
+LaTeX Encoding Info:    Redeclaring text command \capitalcaron (encoding TS1) o
+n input line 62.
+LaTeX Encoding Info:    Redeclaring text command \capitalbreve (encoding TS1) o
+n input line 63.
+LaTeX Encoding Info:    Redeclaring text command \capitalmacron (encoding TS1) 
+on input line 64.
+LaTeX Encoding Info:    Redeclaring text command \capitaldotaccent (encoding TS
+1) on input line 65.
+LaTeX Encoding Info:    Redeclaring text command \t (encoding TS1) on input lin
+e 66.
+LaTeX Encoding Info:    Redeclaring text command \capitaltie (encoding TS1) on 
+input line 67.
+LaTeX Encoding Info:    Redeclaring text command \newtie (encoding TS1) on inpu
+t line 68.
+LaTeX Encoding Info:    Redeclaring text command \capitalnewtie (encoding TS1) 
+on input line 69.
+LaTeX Encoding Info:    Redeclaring text symbol \textcapitalcompwordmark (encod
+ing TS1) on input line 70.
+LaTeX Encoding Info:    Redeclaring text symbol \textascendercompwordmark (enco
+ding TS1) on input line 71.
+LaTeX Encoding Info:    Redeclaring text symbol \textquotestraightbase (encodin
+g TS1) on input line 72.
+LaTeX Encoding Info:    Redeclaring text symbol \textquotestraightdblbase (enco
+ding TS1) on input line 73.
+LaTeX Encoding Info:    Redeclaring text symbol \texttwelveudash (encoding TS1)
+ on input line 74.
+LaTeX Encoding Info:    Redeclaring text symbol \textthreequartersemdash (encod
+ing TS1) on input line 75.
+LaTeX Encoding Info:    Redeclaring text symbol \textleftarrow (encoding TS1) o
+n input line 76.
+LaTeX Encoding Info:    Redeclaring text symbol \textrightarrow (encoding TS1) 
+on input line 77.
+LaTeX Encoding Info:    Redeclaring text symbol \textblank (encoding TS1) on in
+put line 78.
+LaTeX Encoding Info:    Redeclaring text symbol \textdollar (encoding TS1) on i
+nput line 79.
+LaTeX Encoding Info:    Redeclaring text symbol \textquotesingle (encoding TS1)
+ on input line 80.
+LaTeX Encoding Info:    Redeclaring text command \textasteriskcentered (encodin
+g TS1) on input line 81.
+LaTeX Encoding Info:    Redeclaring text symbol \textdblhyphen (encoding TS1) o
+n input line 92.
+LaTeX Encoding Info:    Redeclaring text symbol \textfractionsolidus (encoding 
+TS1) on input line 93.
+LaTeX Encoding Info:    Redeclaring text symbol \textzerooldstyle (encoding TS1
+) on input line 94.
+LaTeX Encoding Info:    Redeclaring text symbol \textoneoldstyle (encoding TS1)
+ on input line 95.
+LaTeX Encoding Info:    Redeclaring text symbol \texttwooldstyle (encoding TS1)
+ on input line 96.
+LaTeX Encoding Info:    Redeclaring text symbol \textthreeoldstyle (encoding TS
+1) on input line 97.
+LaTeX Encoding Info:    Redeclaring text symbol \textfouroldstyle (encoding TS1
+) on input line 98.
+LaTeX Encoding Info:    Redeclaring text symbol \textfiveoldstyle (encoding TS1
+) on input line 99.
+LaTeX Encoding Info:    Redeclaring text symbol \textsixoldstyle (encoding TS1)
+ on input line 100.
+LaTeX Encoding Info:    Redeclaring text symbol \textsevenoldstyle (encoding TS
+1) on input line 101.
+LaTeX Encoding Info:    Redeclaring text symbol \texteightoldstyle (encoding TS
+1) on input line 102.
+LaTeX Encoding Info:    Redeclaring text symbol \textnineoldstyle (encoding TS1
+) on input line 103.
+LaTeX Encoding Info:    Redeclaring text symbol \textlangle (encoding TS1) on i
+nput line 104.
+LaTeX Encoding Info:    Redeclaring text symbol \textminus (encoding TS1) on in
+put line 105.
+LaTeX Encoding Info:    Redeclaring text symbol \textrangle (encoding TS1) on i
+nput line 106.
+LaTeX Encoding Info:    Redeclaring text symbol \textmho (encoding TS1) on inpu
+t line 107.
+LaTeX Encoding Info:    Redeclaring text symbol \textbigcircle (encoding TS1) o
+n input line 108.
+LaTeX Encoding Info:    Redeclaring text command \textcircled (encoding TS1) on
+ input line 109.
+LaTeX Encoding Info:    Redeclaring text symbol \textohm (encoding TS1) on inpu
+t line 115.
+LaTeX Encoding Info:    Redeclaring text symbol \textlbrackdbl (encoding TS1) o
+n input line 116.
+LaTeX Encoding Info:    Redeclaring text symbol \textrbrackdbl (encoding TS1) o
+n input line 117.
+LaTeX Encoding Info:    Redeclaring text symbol \textuparrow (encoding TS1) on 
+input line 118.
+LaTeX Encoding Info:    Redeclaring text symbol \textdownarrow (encoding TS1) o
+n input line 119.
+LaTeX Encoding Info:    Redeclaring text symbol \textasciigrave (encoding TS1) 
+on input line 120.
+LaTeX Encoding Info:    Redeclaring text symbol \textborn (encoding TS1) on inp
+ut line 121.
+LaTeX Encoding Info:    Redeclaring text symbol \textdivorced (encoding TS1) on
+ input line 122.
+LaTeX Encoding Info:    Redeclaring text symbol \textdied (encoding TS1) on inp
+ut line 123.
+LaTeX Encoding Info:    Redeclaring text symbol \textleaf (encoding TS1) on inp
+ut line 124.
+LaTeX Encoding Info:    Redeclaring text symbol \textmarried (encoding TS1) on 
+input line 125.
+LaTeX Encoding Info:    Redeclaring text symbol \textmusicalnote (encoding TS1)
+ on input line 126.
+LaTeX Encoding Info:    Redeclaring text symbol \texttildelow (encoding TS1) on
+ input line 127.
+LaTeX Encoding Info:    Redeclaring text symbol \textdblhyphenchar (encoding TS
+1) on input line 128.
+LaTeX Encoding Info:    Redeclaring text symbol \textasciibreve (encoding TS1) 
+on input line 129.
+LaTeX Encoding Info:    Redeclaring text symbol \textasciicaron (encoding TS1) 
+on input line 130.
+LaTeX Encoding Info:    Redeclaring text symbol \textacutedbl (encoding TS1) on
+ input line 131.
+LaTeX Encoding Info:    Redeclaring text symbol \textgravedbl (encoding TS1) on
+ input line 132.
+LaTeX Encoding Info:    Redeclaring text symbol \textdagger (encoding TS1) on i
+nput line 133.
+LaTeX Encoding Info:    Redeclaring text symbol \textdaggerdbl (encoding TS1) o
+n input line 134.
+LaTeX Encoding Info:    Redeclaring text symbol \textbardbl (encoding TS1) on i
+nput line 135.
+LaTeX Encoding Info:    Redeclaring text symbol \textperthousand (encoding TS1)
+ on input line 136.
+LaTeX Encoding Info:    Redeclaring text symbol \textbullet (encoding TS1) on i
+nput line 137.
+LaTeX Encoding Info:    Redeclaring text symbol \textcelsius (encoding TS1) on 
+input line 138.
+LaTeX Encoding Info:    Redeclaring text symbol \textdollaroldstyle (encoding T
+S1) on input line 139.
+LaTeX Encoding Info:    Redeclaring text symbol \textcentoldstyle (encoding TS1
+) on input line 140.
+LaTeX Encoding Info:    Redeclaring text symbol \textflorin (encoding TS1) on i
+nput line 141.
+LaTeX Encoding Info:    Redeclaring text symbol \textcolonmonetary (encoding TS
+1) on input line 142.
+LaTeX Encoding Info:    Redeclaring text symbol \textwon (encoding TS1) on inpu
+t line 143.
+LaTeX Encoding Info:    Redeclaring text symbol \textnaira (encoding TS1) on in
+put line 144.
+LaTeX Encoding Info:    Redeclaring text symbol \textguarani (encoding TS1) on 
+input line 145.
+LaTeX Encoding Info:    Redeclaring text symbol \textpeso (encoding TS1) on inp
+ut line 146.
+LaTeX Encoding Info:    Redeclaring text symbol \textlira (encoding TS1) on inp
+ut line 147.
+LaTeX Encoding Info:    Redeclaring text symbol \textrecipe (encoding TS1) on i
+nput line 148.
+LaTeX Encoding Info:    Redeclaring text symbol \textinterrobang (encoding TS1)
+ on input line 149.
+LaTeX Encoding Info:    Redeclaring text symbol \textinterrobangdown (encoding 
+TS1) on input line 150.
+LaTeX Encoding Info:    Redeclaring text symbol \textdong (encoding TS1) on inp
+ut line 151.
+LaTeX Encoding Info:    Redeclaring text symbol \texttrademark (encoding TS1) o
+n input line 152.
+LaTeX Encoding Info:    Redeclaring text symbol \textpertenthousand (encoding T
+S1) on input line 153.
+LaTeX Encoding Info:    Redeclaring text symbol \textpilcrow (encoding TS1) on 
+input line 154.
+LaTeX Encoding Info:    Redeclaring text symbol \textbaht (encoding TS1) on inp
+ut line 155.
+LaTeX Encoding Info:    Redeclaring text symbol \textnumero (encoding TS1) on i
+nput line 156.
+LaTeX Encoding Info:    Redeclaring text symbol \textdiscount (encoding TS1) on
+ input line 157.
+LaTeX Encoding Info:    Redeclaring text symbol \textestimated (encoding TS1) o
+n input line 158.
+LaTeX Encoding Info:    Redeclaring text symbol \textopenbullet (encoding TS1) 
+on input line 159.
+LaTeX Encoding Info:    Redeclaring text symbol \textservicemark (encoding TS1)
+ on input line 160.
+LaTeX Encoding Info:    Redeclaring text symbol \textlquill (encoding TS1) on i
+nput line 161.
+LaTeX Encoding Info:    Redeclaring text symbol \textrquill (encoding TS1) on i
+nput line 162.
+LaTeX Encoding Info:    Redeclaring text symbol \textcent (encoding TS1) on inp
+ut line 163.
+LaTeX Encoding Info:    Redeclaring text symbol \textsterling (encoding TS1) on
+ input line 164.
+LaTeX Encoding Info:    Redeclaring text symbol \textcurrency (encoding TS1) on
+ input line 165.
+LaTeX Encoding Info:    Redeclaring text symbol \textyen (encoding TS1) on inpu
+t line 166.
+LaTeX Encoding Info:    Redeclaring text symbol \textbrokenbar (encoding TS1) o
+n input line 167.
+LaTeX Encoding Info:    Redeclaring text symbol \textsection (encoding TS1) on 
+input line 168.
+LaTeX Encoding Info:    Redeclaring text symbol \textasciidieresis (encoding TS
+1) on input line 169.
+LaTeX Encoding Info:    Redeclaring text symbol \textcopyright (encoding TS1) o
+n input line 170.
+LaTeX Encoding Info:    Redeclaring text symbol \textordfeminine (encoding TS1)
+ on input line 171.
+LaTeX Encoding Info:    Redeclaring text symbol \textcopyleft (encoding TS1) on
+ input line 172.
+LaTeX Encoding Info:    Redeclaring text symbol \textlnot (encoding TS1) on inp
+ut line 173.
+LaTeX Encoding Info:    Redeclaring text symbol \textcircledP (encoding TS1) on
+ input line 174.
+LaTeX Encoding Info:    Redeclaring text symbol \textregistered (encoding TS1) 
+on input line 175.
+LaTeX Encoding Info:    Redeclaring text symbol \textasciimacron (encoding TS1)
+ on input line 176.
+LaTeX Encoding Info:    Redeclaring text symbol \textdegree (encoding TS1) on i
+nput line 177.
+LaTeX Encoding Info:    Redeclaring text symbol \textpm (encoding TS1) on input
+ line 178.
+LaTeX Encoding Info:    Redeclaring text symbol \texttwosuperior (encoding TS1)
+ on input line 179.
+LaTeX Encoding Info:    Redeclaring text symbol \textthreesuperior (encoding TS
+1) on input line 180.
+LaTeX Encoding Info:    Redeclaring text symbol \textasciiacute (encoding TS1) 
+on input line 181.
+LaTeX Encoding Info:    Redeclaring text symbol \textmu (encoding TS1) on input
+ line 182.
+LaTeX Encoding Info:    Redeclaring text symbol \textparagraph (encoding TS1) o
+n input line 183.
+LaTeX Encoding Info:    Redeclaring text symbol \textperiodcentered (encoding T
+S1) on input line 184.
+LaTeX Encoding Info:    Redeclaring text symbol \textreferencemark (encoding TS
+1) on input line 185.
+LaTeX Encoding Info:    Redeclaring text symbol \textonesuperior (encoding TS1)
+ on input line 186.
+LaTeX Encoding Info:    Redeclaring text symbol \textordmasculine (encoding TS1
+) on input line 187.
+LaTeX Encoding Info:    Redeclaring text symbol \textsurd (encoding TS1) on inp
+ut line 188.
+LaTeX Encoding Info:    Redeclaring text symbol \textonequarter (encoding TS1) 
+on input line 189.
+LaTeX Encoding Info:    Redeclaring text symbol \textonehalf (encoding TS1) on 
+input line 190.
+LaTeX Encoding Info:    Redeclaring text symbol \textthreequarters (encoding TS
+1) on input line 191.
+LaTeX Encoding Info:    Redeclaring text symbol \texteuro (encoding TS1) on inp
+ut line 192.
+LaTeX Encoding Info:    Redeclaring text symbol \texttimes (encoding TS1) on in
+put line 193.
+LaTeX Encoding Info:    Redeclaring text symbol \textdiv (encoding TS1) on inpu
+t line 194.
+))
+\l__ctex_tmp_int=\count274
+\l__ctex_tmp_box=\box53
+\l__ctex_tmp_dim=\dimen150
+\g__ctex_section_depth_int=\count275
+\g__ctex_font_size_int=\count276
+
+(d:/texlive/2026/texmf-dist/tex/latex/ctex/config/ctexopts.cfg
+File: ctexopts.cfg 2022/07/14 v2.5.10 Option configuration file (CTEX)
+)
+(d:/texlive/2026/texmf-dist/tex/latex/base/book.cls
+Document Class: book 2025/01/22 v1.4n Standard LaTeX document class
+(d:/texlive/2026/texmf-dist/tex/latex/base/bk12.clo
+File: bk12.clo 2025/01/22 v1.4n Standard LaTeX file (size option)
+)
+\c@part=\count277
+\c@chapter=\count278
+\c@section=\count279
+\c@subsection=\count280
+\c@subsubsection=\count281
+\c@paragraph=\count282
+\c@subparagraph=\count283
+\c@figure=\count284
+\c@table=\count285
+\abovecaptionskip=\skip49
+\belowcaptionskip=\skip50
+\bibindent=\dimen151
+)
+(d:/texlive/2026/texmf-dist/tex/latex/ctex/engine/ctex-engine-xetex.def
+File: ctex-engine-xetex.def 2022/07/14 v2.5.10 XeLaTeX adapter (CTEX)
+
+(d:/texlive/2026/texmf-dist/tex/xelatex/xecjk/xeCJK.sty
+Package: xeCJK 2022/08/05 v3.9.1 Typesetting CJK scripts with XeLaTeX
+
+(d:/texlive/2026/texmf-dist/tex/latex/l3packages/xtemplate/xtemplate.sty
+Package: xtemplate 2025-10-09 L3 Experimental prototype document functions
+)
+\l__xeCJK_tmp_int=\count286
+\l__xeCJK_tmp_box=\box54
+\l__xeCJK_tmp_dim=\dimen152
+\l__xeCJK_tmp_skip=\skip51
+\g__xeCJK_space_factor_int=\count287
+\l__xeCJK_begin_int=\count288
+\l__xeCJK_end_int=\count289
+\c__xeCJK_CJK_class_int=\XeTeXcharclass1
+\c__xeCJK_FullLeft_class_int=\XeTeXcharclass2
+\c__xeCJK_FullRight_class_int=\XeTeXcharclass3
+\c__xeCJK_HalfLeft_class_int=\XeTeXcharclass4
+\c__xeCJK_HalfRight_class_int=\XeTeXcharclass5
+\c__xeCJK_NormalSpace_class_int=\XeTeXcharclass6
+\c__xeCJK_CM_class_int=\XeTeXcharclass7
+\c__xeCJK_HangulJamo_class_int=\XeTeXcharclass8
+\l__xeCJK_last_skip=\skip52
+\c__xeCJK_none_node=\count290
+\g__xeCJK_node_int=\count291
+\c__xeCJK_CJK_node_dim=\dimen153
+\c__xeCJK_CJK-space_node_dim=\dimen154
+\c__xeCJK_default_node_dim=\dimen155
+\c__xeCJK_CJK-widow_node_dim=\dimen156
+\c__xeCJK_normalspace_node_dim=\dimen157
+\c__xeCJK_default-space_node_skip=\skip53
+\l__xeCJK_ccglue_skip=\skip54
+\l__xeCJK_ecglue_skip=\skip55
+\l__xeCJK_punct_kern_skip=\skip56
+\l__xeCJK_indent_box=\box55
+\l__xeCJK_last_penalty_int=\count292
+\l__xeCJK_last_bound_dim=\dimen158
+\l__xeCJK_last_kern_dim=\dimen159
+\l__xeCJK_widow_penalty_int=\count293
+
+LaTeX template Info: Declaring template type 'xeCJK/punctuation' taking 0
+(template)           argument(s) on line 2396.
+
+\l__xeCJK_fixed_punct_width_dim=\dimen160
+\l__xeCJK_mixed_punct_width_dim=\dimen161
+\l__xeCJK_middle_punct_width_dim=\dimen162
+\l__xeCJK_fixed_margin_width_dim=\dimen163
+\l__xeCJK_mixed_margin_width_dim=\dimen164
+\l__xeCJK_middle_margin_width_dim=\dimen165
+\l__xeCJK_bound_punct_width_dim=\dimen166
+\l__xeCJK_bound_margin_width_dim=\dimen167
+\l__xeCJK_margin_minimum_dim=\dimen168
+\l__xeCJK_kerning_total_width_dim=\dimen169
+\l__xeCJK_same_align_margin_dim=\dimen170
+\l__xeCJK_different_align_margin_dim=\dimen171
+\l__xeCJK_kerning_margin_width_dim=\dimen172
+\l__xeCJK_kerning_margin_minimum_dim=\dimen173
+\l__xeCJK_bound_dim=\dimen174
+\l__xeCJK_reverse_bound_dim=\dimen175
+\l__xeCJK_margin_dim=\dimen176
+\l__xeCJK_minimum_bound_dim=\dimen177
+\l__xeCJK_kerning_margin_dim=\dimen178
+\g__xeCJK_family_int=\count294
+\l__xeCJK_fam_int=\count295
+\g__xeCJK_fam_allocation_int=\count296
+\l__xeCJK_verb_case_int=\count297
+\l__xeCJK_verb_exspace_skip=\skip57
+
+(d:/texlive/2026/texmf-dist/tex/latex/fontspec/fontspec.sty
+(d:/texlive/2026/texmf-dist/tex/latex/l3packages/xparse/xparse.sty
+Package: xparse 2025-10-09 L3 Experimental document command parser
+)
+Package: fontspec 2025/09/29 v2.9g Font selection for XeLaTeX and LuaLaTeX
+
+(d:/texlive/2026/texmf-dist/tex/latex/fontspec/fontspec-xetex.sty
+Package: fontspec-xetex 2025/09/29 v2.9g Font selection for XeLaTeX and LuaLaTe
+X
+\l__fontspec_script_int=\count298
+\l__fontspec_language_int=\count299
+\l__fontspec_strnum_int=\count300
+\l__fontspec_tmp_int=\count301
+\l__fontspec_tmpa_int=\count302
+\l__fontspec_tmpb_int=\count303
+\l__fontspec_tmpc_int=\count304
+\l__fontspec_em_int=\count305
+\l__fontspec_emdef_int=\count306
+\l__fontspec_strong_int=\count307
+\l__fontspec_strongdef_int=\count308
+\l__fontspec_tmpa_dim=\dimen179
+\l__fontspec_tmpb_dim=\dimen180
+\l__fontspec_tmpc_dim=\dimen181
+
+(d:/texlive/2026/texmf-dist/tex/latex/base/fontenc.sty
+Package: fontenc 2025/07/18 v2.1d Standard LaTeX package
+)
+(d:/texlive/2026/texmf-dist/tex/latex/fontspec/fontspec.cfg)))
+(d:/texlive/2026/texmf-dist/tex/xelatex/xecjk/xeCJK.cfg
+File: xeCJK.cfg 2022/08/05 v3.9.1 Configuration file for xeCJK package
+))
+\ccwd=\dimen182
+\l__ctex_ccglue_skip=\skip58
+)
+\l__ctex_ziju_dim=\dimen183
+
+(d:/texlive/2026/texmf-dist/tex/latex/zhnumber/zhnumber.sty
+Package: zhnumber 2022/07/14 v3.0 Typesetting numbers with Chinese glyphs
+\l__zhnum_scale_int=\count309
+\l__zhnum_tmp_int=\count310
+
+(d:/texlive/2026/texmf-dist/tex/latex/zhnumber/zhnumber-utf8.cfg
+File: zhnumber-utf8.cfg 2022/07/14 v3.0 Chinese numerals with UTF8 encoding
+))
+\l__ctex_heading_skip=\skip59
+
+(d:/texlive/2026/texmf-dist/tex/latex/ctex/scheme/ctex-scheme-chinese-book.def
+File: ctex-scheme-chinese-book.def 2022/07/14 v2.5.10 Chinese scheme for book (
+CTEX)
+
+(d:/texlive/2026/texmf-dist/tex/latex/ctex/config/ctex-name-utf8.cfg
+File: ctex-name-utf8.cfg 2022/07/14 v2.5.10 Caption with encoding UTF-8 (CTEX)
+))
+(d:/texlive/2026/texmf-dist/tex/latex/ctex/fontset/ctex-fontset-windows.def
+File: ctex-fontset-windows.def 2022/07/14 v2.5.10 Windows fonts definition (CTE
+X)
+
+Package fontspec Info: 
+(fontspec)             Could not resolve font "KaiTi/B" (it probably doesn't
+(fontspec)             exist).
+
+
+Package fontspec Info: 
+(fontspec)             Could not resolve font "SimHei/I" (it probably doesn't
+(fontspec)             exist).
+
+
+Package fontspec Info: 
+(fontspec)             Could not resolve font "SimSun/BI" (it probably doesn't
+(fontspec)             exist).
+
+
+Package fontspec Info: 
+(fontspec)             Font family 'SimSun(0)' created for font 'SimSun' with
+(fontspec)             options
+(fontspec)             [Script={CJK},BoldFont={SimHei},ItalicFont={KaiTi}].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS
+(fontspec)             series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.:
+(fontspec)             <->"SimSun/OT:script=hani;language=dflt;"
+(fontspec)             - 'bold' (b/n) with NFSS spec.:
+(fontspec)             <->"SimHei/OT:script=hani;language=dflt;"
+(fontspec)             - 'italic' (m/it) with NFSS spec.:
+(fontspec)             <->"KaiTi/OT:script=hani;language=dflt;"
+
+))
+(d:/texlive/2026/texmf-dist/tex/latex/ctex/config/ctex.cfg
+File: ctex.cfg 2022/07/14 v2.5.10 Configuration file (CTEX)
+)
+(d:/texlive/2026/texmf-dist/tex/latex/xcolor/xcolor.sty
+Package: xcolor 2024/09/29 v3.02 LaTeX color extensions (UK)
+
+(d:/texlive/2026/texmf-dist/tex/latex/graphics-cfg/color.cfg
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package xcolor Info: Driver file: xetex.def on input line 274.
+
+(d:/texlive/2026/texmf-dist/tex/latex/graphics-def/xetex.def
+File: xetex.def 2025/11/01 v5.0p Graphics/color driver for xetex
+)
+(d:/texlive/2026/texmf-dist/tex/latex/graphics/mathcolor.ltx)
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1349.
+Package xcolor Info: Model `RGB' extended on input line 1365.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1367.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1368.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1369.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1370.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1371.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1372.
+)
+(d:/texlive/2026/texmf-dist/tex/latex/tocloft/tocloft.sty
+Package: tocloft 2017/08/31 v2.3i parameterised ToC, etc., typesetting
+Package tocloft Info: The document has chapter divisions on input line 51.
+\cftparskip=\skip60
+\cftbeforetoctitleskip=\skip61
+\cftaftertoctitleskip=\skip62
+\cftbeforepartskip=\skip63
+\cftpartnumwidth=\skip64
+\cftpartindent=\skip65
+\cftbeforechapskip=\skip66
+\cftchapindent=\skip67
+\cftchapnumwidth=\skip68
+\cftbeforesecskip=\skip69
+\cftsecindent=\skip70
+\cftsecnumwidth=\skip71
+\cftbeforesubsecskip=\skip72
+\cftsubsecindent=\skip73
+\cftsubsecnumwidth=\skip74
+\cftbeforesubsubsecskip=\skip75
+\cftsubsubsecindent=\skip76
+\cftsubsubsecnumwidth=\skip77
+\cftbeforeparaskip=\skip78
+\cftparaindent=\skip79
+\cftparanumwidth=\skip80
+\cftbeforesubparaskip=\skip81
+\cftsubparaindent=\skip82
+\cftsubparanumwidth=\skip83
+\cftbeforeloftitleskip=\skip84
+\cftafterloftitleskip=\skip85
+\cftbeforefigskip=\skip86
+\cftfigindent=\skip87
+\cftfignumwidth=\skip88
+\c@lofdepth=\count311
+\c@lotdepth=\count312
+\cftbeforelottitleskip=\skip89
+\cftafterlottitleskip=\skip90
+\cftbeforetabskip=\skip91
+\cfttabindent=\skip92
+\cfttabnumwidth=\skip93
+)
+(d:/texlive/2026/texmf-dist/tex/latex/multirow/multirow.sty
+Package: multirow 2024/11/12 v2.9 Span multiple rows of a table
+\multirow@colwidth=\skip94
+\multirow@cntb=\count313
+\multirow@dima=\skip95
+\bigstrutjot=\dimen184
+)
+(d:/texlive/2026/texmf-dist/tex/latex/booktabs/booktabs.sty
+Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
+\heavyrulewidth=\dimen185
+\lightrulewidth=\dimen186
+\cmidrulewidth=\dimen187
+\belowrulesep=\dimen188
+\belowbottomsep=\dimen189
+\aboverulesep=\dimen190
+\abovetopsep=\dimen191
+\cmidrulesep=\dimen192
+\cmidrulekern=\dimen193
+\defaultaddspace=\dimen194
+\@cmidla=\count314
+\@cmidlb=\count315
+\@aboverulesep=\dimen195
+\@belowrulesep=\dimen196
+\@thisruleclass=\count316
+\@lastruleclass=\count317
+\@thisrulewidth=\dimen197
+)
+(d:/texlive/2026/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
+Package: fancyhdr 2025/02/07 v5.2 Extensive control of page headers and footers
+
+\f@nch@headwidth=\skip96
+\f@nch@offset@elh=\skip97
+\f@nch@offset@erh=\skip98
+\f@nch@offset@olh=\skip99
+\f@nch@offset@orh=\skip100
+\f@nch@offset@elf=\skip101
+\f@nch@offset@erf=\skip102
+\f@nch@offset@olf=\skip103
+\f@nch@offset@orf=\skip104
+\f@nch@height=\skip105
+\f@nch@footalignment=\skip106
+\f@nch@widthL=\skip107
+\f@nch@widthC=\skip108
+\f@nch@widthR=\skip109
+\@temptokenb=\toks17
+)
+(d:/texlive/2026/texmf-dist/tex/latex/geometry/geometry.sty
+Package: geometry 2026/03/07 v6.0 Page Geometry
+
+(d:/texlive/2026/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
+\KV@toks@=\toks18
+)
+(d:/texlive/2026/texmf-dist/tex/generic/iftex/ifvtex.sty
+Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
+
+(d:/texlive/2026/texmf-dist/tex/generic/iftex/iftex.sty
+Package: iftex 2024/12/12 v1.0g TeX engine tests
+))
+\Gm@cnth=\count318
+\Gm@cntv=\count319
+\c@Gm@tempcnt=\count320
+\Gm@bindingoffset=\dimen198
+\Gm@wd@mp=\dimen199
+\Gm@odd@mp=\dimen256
+\Gm@even@mp=\dimen257
+\Gm@layoutwidth=\dimen258
+\Gm@layoutheight=\dimen259
+\Gm@layouthoffset=\dimen260
+\Gm@layoutvoffset=\dimen261
+\Gm@dimlist=\toks19
+)
+(d:/texlive/2026/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 2024/12/31 v1.2e Enhanced LaTeX Graphics (DPC,SPQR)
+
+(d:/texlive/2026/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2024/08/06 v1.4g Standard LaTeX Graphics (DPC,SPQR)
+
+(d:/texlive/2026/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 2023/12/02 v1.11 sin cos tan (DPC)
+)
+(d:/texlive/2026/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: xetex.def on input line 106.
+)
+\Gin@req@height=\dimen262
+\Gin@req@width=\dimen263
+)
+(d:/texlive/2026/texmf-dist/tex/latex/caption/caption.sty
+Package: caption 2023/08/05 v3.6o Customizing captions (AR)
+
+(d:/texlive/2026/texmf-dist/tex/latex/caption/caption3.sty
+Package: caption3 2023/07/31 v2.4d caption3 kernel (AR)
+\caption@tempdima=\dimen264
+\captionmargin=\dimen265
+\caption@leftmargin=\dimen266
+\caption@rightmargin=\dimen267
+\caption@width=\dimen268
+\caption@indent=\dimen269
+\caption@parindent=\dimen270
+\caption@hangindent=\dimen271
+Package caption Info: Standard document class detected.
+)
+\c@caption@flags=\count321
+\c@continuedfloat=\count322
+)
+(d:/texlive/2026/texmf-dist/tex/latex/setspace/setspace.sty
+Package: setspace 2022/12/04 v6.7b set line spacing
+)
+(d:/texlive/2026/texmf-dist/tex/latex/tabularray/tabularray.sty
+Package: tabularray 2025-11-27 v2025C Typeset tabulars and arrays with LaTeX3
+
+(d:/texlive/2026/texmf-dist/tex/latex/ninecolors/ninecolors.sty
+Package: ninecolors 2022-02-13 v2022D Select colors with proper color contrast
+)
+\g__tblr_nohyper_int=\count323
+\l__tblr_a_int=\count324
+\l__tblr_c_int=\count325
+\l__tblr_r_int=\count326
+\l__tblr_d_dim=\dimen272
+\l__tblr_h_dim=\dimen273
+\l__tblr_o_dim=\dimen274
+\l__tblr_p_dim=\dimen275
+\l__tblr_q_dim=\dimen276
+\l__tblr_r_dim=\dimen277
+\l__tblr_s_dim=\dimen278
+\l__tblr_t_dim=\dimen279
+\l__tblr_v_dim=\dimen280
+\l__tblr_w_dim=\dimen281
+\l__tblr_a_box=\box56
+\l__tblr_b_box=\box57
+\l__tblr_c_box=\box58
+\l__tblr_d_box=\box59
+\c@tblrcount=\count327
+\c@rownum=\count328
+\c@colnum=\count329
+\c@rowcount=\count330
+\c@colcount=\count331
+\abovesep=\dimen282
+\belowsep=\dimen283
+\leftsep=\dimen284
+\rightsep=\dimen285
+\gTblrLevelInt=\count332
+\g__tblr_data_row_key_count_int=\count333
+\g__tblr_data_column_key_count_int=\count334
+\g__tblr_data_cell_key_count_int=\count335
+\g__tblr_array_int=\count336
+\l__tblr_key_count_int=\count337
+\l__tblr_key_quotient_int=\count338
+\l__tblr_key_quotient_two_int=\count339
+\l__tblr_key_remainder_int=\count340
+\g__tblr_data_str_value_count_int=\count341
+\lTblrChildTotalInt=\count342
+\lTblrChildHtotalInt=\count343
+\lTblrChildVtotalInt=\count344
+\l__child_diff_h_int=\count345
+\l__child_diff_v_int=\count346
+\l__child_sign_h_int=\count347
+\l__child_sign_v_int=\count348
+\l__child_step_int=\count349
+\lTblrDefaultHruleWidthDim=\dimen286
+\lTblrDefaultVruleWidthDim=\dimen287
+\l__tblr_split_balance_int=\count350
+\l__tblr_strut_dp_dim=\dimen288
+\l__tblr_strut_ht_dim=\dimen289
+\g__tblr_cell_wd_dim=\dimen290
+\g__tblr_cell_ht_dim=\dimen291
+\g__tblr_cell_head_dim=\dimen292
+\g__tblr_cell_foot_dim=\dimen293
+\l__tblr_measured_cell_box=\box60
+\g__tblr_last_box=\box61
+\l__tblr_temp_box=\box62
+\l__tblr_column_target_dim=\dimen294
+\l__tblr_hfuzz_dim=\dimen295
+\l__tblr_caption_box=\box63
+\l__tblr_caption_left_box=\box64
+\lTblrRowHeadInt=\count351
+\lTblrRowFootInt=\count352
+\l__tblr_row_head_box=\box65
+\l__tblr_row_foot_box=\box66
+\l__tblr_row_head_foot_dim=\dimen296
+\lTblrTableWidthDim=\dimen297
+\l__tblr_table_firsthead_box=\box67
+\l__tblr_table_middlehead_box=\box68
+\l__tblr_table_lasthead_box=\box69
+\l__tblr_table_firstfoot_box=\box70
+\l__tblr_table_middlefoot_box=\box71
+\l__tblr_table_lastfoot_box=\box72
+\l__tblr_remain_height_dim=\dimen298
+\l__tblr_next_rows_dim=\dimen299
+\l__tblr_page_overfill_dim=\dimen300
+\l__tblr_long_from_int=\count353
+\l__tblr_long_to_int=\count354
+\l__tblr_curr_i_int=\count355
+\l__tblr_prev_i_int=\count356
+\lTblrTablePageInt=\count357
+\l__tblr_table_head_box=\box73
+\l__tblr_table_foot_box=\box74
+\l__tblr_table_head_foot_dim=\dimen301
+\l__tblr_table_head_body_foot_dim=\dimen302
+\l__tblr_table_box=\box75
+\lTblrRowFirstInt=\count358
+\lTblrRowLastInt=\count359
+\l__tblr_cover_box_a_dim=\dimen303
+\l__tblr_cover_box_b_dim=\dimen304
+\l__tblr_table_hlines_box=\box76
+\l__tblr_hline_box=\box77
+\l__tblr_row_box=\box78
+\l__tblr_col_o_wd_dim=\dimen305
+\l__tblr_col_b_wd_dim=\dimen306
+\l__tblr_hline_leftskip_dim=\dimen307
+\l__tblr_hline_rightskip_dim=\dimen308
+\l__tblr_row_ht_dim=\dimen309
+\l__tblr_row_dp_dim=\dimen310
+\l__tblr_row_abovesep_dim=\dimen311
+\l__tblr_row_belowsep_dim=\dimen312
+\l__tblr_row_vlines_box=\box79
+\l__tblr_vline_box=\box80
+\l__tblr_cell_box=\box81
+\l__tblr_row_upper_dim=\dimen313
+\l__tblr_row_lower_dim=\dimen314
+\l__tblr_row_vpace_dim=\dimen315
+\l__tblr_vline_aboveskip_dim=\dimen316
+\l__tblr_vline_belowskip_dim=\dimen317
+\lTblrCellRowSpanInt=\count360
+\lTblrCellColSpanInt=\count361
+\l__tblr_cell_wd_dim=\dimen318
+\l__tblr_cell_ht_dim=\dimen319
+\lTblrCellAboveBorderWidthDim=\dimen320
+\lTblrCellBelowBorderWidthDim=\dimen321
+\lTblrCellLeftBorderWidthDim=\dimen322
+\lTblrCellRightBorderWidthDim=\dimen323
+\l__tblr_diag_box=\box82
+\l__tblr_cell_inner_wd_dim=\dimen324
+\l__tblr_cell_inner_dp_dim=\dimen325
+\l__tblr_cell_hanchor_dim=\dimen326
+\l__tblr_last_cell_table_ht_dim=\dimen327
+\l__tblr_last_cell_table_dp_dim=\dimen328
+\l__tblr_last_vline_wd_dim=\dimen329
+\l__tblr_tikz_node_box=\box83
+)
+(d:/texlive/2026/texmf-dist/tex/latex/adjustbox/adjustbox.sty
+Package: adjustbox 2025/02/26 v1.3c Adjusting TeX boxes (trim, clip, ...)
+
+(d:/texlive/2026/texmf-dist/tex/latex/xkeyval/xkeyval.sty
+Package: xkeyval 2025/11/04 v2.10 package option processing (HA)
+
+(d:/texlive/2026/texmf-dist/tex/generic/xkeyval/xkeyval.tex
+(d:/texlive/2026/texmf-dist/tex/generic/xkeyval/xkvutils.tex
+\XKV@toks=\toks20
+\XKV@tempa@toks=\toks21
+\XKV@tempb@toks=\toks22
+)
+\XKV@depth=\count362
+File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
+))
+(d:/texlive/2026/texmf-dist/tex/latex/adjustbox/adjcalc.sty
+Package: adjcalc 2012/05/16 v1.1 Provides advanced setlength with multiple back
+-ends (calc, etex, pgfmath)
+)
+(d:/texlive/2026/texmf-dist/tex/latex/adjustbox/trimclip.sty
+Package: trimclip 2025/02/21 v1.2a Trim and clip general TeX material
+
+(d:/texlive/2026/texmf-dist/tex/latex/collectbox/collectbox.sty
+Package: collectbox 2022/10/17 v0.4c Collect macro arguments as boxes
+\collectedbox=\box84
+)
+\tc@llx=\dimen330
+\tc@lly=\dimen331
+\tc@urx=\dimen332
+\tc@ury=\dimen333
+Package trimclip Info: Using driver 'tc-xetex.def'.
+
+(d:/texlive/2026/texmf-dist/tex/latex/adjustbox/tc-xetex.def
+File: tc-xetex.def 2019/01/04 v2.2 Clipping driver for xetex
+))
+\adjbox@Width=\dimen334
+\adjbox@Height=\dimen335
+\adjbox@Depth=\dimen336
+\adjbox@Totalheight=\dimen337
+\adjbox@pwidth=\dimen338
+\adjbox@pheight=\dimen339
+\adjbox@pdepth=\dimen340
+\adjbox@ptotalheight=\dimen341
+
+(d:/texlive/2026/texmf-dist/tex/latex/ifoddpage/ifoddpage.sty
+Package: ifoddpage 2022/10/18 v1.2 Conditionals for odd/even page detection
+\c@checkoddpage=\count363
+)
+(d:/texlive/2026/texmf-dist/tex/latex/varwidth/varwidth.sty
+Package: varwidth 2009/03/30 ver 0.92;  Variable-width minipages
+\@vwid@box=\box85
+\sift@deathcycles=\count364
+\@vwid@loff=\dimen342
+\@vwid@roff=\dimen343
+)
+==> First Aid for varwidth.sty applied!
+) (d:/texlive/2026/texmf-dist/tex/latex/tools/calc.sty
+Package: calc 2025/03/01 v4.3b Infix arithmetic (KKT,FJ)
+\calc@Acount=\count365
+\calc@Bcount=\count366
+\calc@Adimen=\dimen344
+\calc@Bdimen=\dimen345
+\calc@Askip=\skip110
+\calc@Bskip=\skip111
+LaTeX Info: Redefining \setlength on input line 86.
+LaTeX Info: Redefining \addtolength on input line 87.
+\calc@Ccount=\count367
+\calc@Cskip=\skip112
+)
+(d:/texlive/2026/texmf-dist/tex/latex/gbt7714/gbt7714.sty
+Package: gbt7714 2026/01/15 v2.1.9 GB/T 7714 BibTeX Style
+
+(d:/texlive/2026/texmf-dist/tex/latex/natbib/natbib.sty
+Package: natbib 2010/09/13 8.31b (PWD, AO)
+\bibhang=\skip113
+\bibsep=\skip114
+LaTeX Info: Redefining \cite on input line 694.
+\c@NAT@ctr=\count368
+)
+(d:/texlive/2026/texmf-dist/tex/latex/url/url.sty
+\Urlmuskip=\muskip17
+Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
+))
+
+Package fontspec Info: 
+(fontspec)             Font family 'TimesNewRoman(0)' created for font 'Times
+(fontspec)             New Roman' with options [Ligatures=TeX,UprightFont=*].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS
+(fontspec)             series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.: <->"Times New
+(fontspec)             Roman/OT:script=latn;language=dflt;mapping=tex-text;"
+(fontspec)             - 'small caps'  (m/sc) with NFSS spec.: <->"Times New
+(fontspec)             Roman/OT:script=latn;language=dflt;+smcp;mapping=tex-tex
+t;"
+(fontspec)             - 'bold' (b/n) with NFSS spec.: <->"Times New
+(fontspec)             Roman/B/OT:script=latn;language=dflt;mapping=tex-text;"
+(fontspec)             - 'bold small caps'  (b/sc) with NFSS spec.: <->"Times
+(fontspec)             New
+(fontspec)             Roman/B/OT:script=latn;language=dflt;+smcp;mapping=tex-t
+ext;"
+(fontspec)             - 'italic' (m/it) with NFSS spec.: <->"Times New
+(fontspec)             Roman/I/OT:script=latn;language=dflt;mapping=tex-text;"
+(fontspec)             - 'italic small caps'  (m/scit) with NFSS spec.:
+(fontspec)             <->"Times New
+(fontspec)             Roman/I/OT:script=latn;language=dflt;+smcp;mapping=tex-t
+ext;"
+(fontspec)             - 'bold italic' (b/it) with NFSS spec.: <->"Times New
+(fontspec)             Roman/BI/OT:script=latn;language=dflt;mapping=tex-text;"
+
+(fontspec)             - 'bold italic small caps'  (b/scit) with NFSS spec.:
+(fontspec)             <->"Times New
+(fontspec)             Roman/BI/OT:script=latn;language=dflt;+smcp;mapping=tex-
+text;"
+
+ (./JLUThesis.cfg
+File: JLUThesis.cfg 
+)
+(d:/texlive/2026/texmf-dist/tex/latex/caption/subcaption.sty
+Package: subcaption 2023/07/28 v1.6b Sub-captions (AR)
+Package caption Info: New subtype `subfigure' on input line 238.
+\c@subfigure=\count369
+Package caption Info: New subtype `subtable' on input line 238.
+\c@subtable=\count370
+)
+\@tempTitleHt=\skip115
+\@tempTitleMaxWd=\skip116
+\lwtm=\skip117
+\titleSingleLineMaxWd=\skip118
+\titleMultiLineMaxWd=\skip119
+\titleLRExtraWd=\skip120
+\titleSepWd=\skip121
+
+Package fontspec Info: 
+(fontspec)             Font family 'SimSun.ttf(0)' created for font
+(fontspec)             'SimSun.ttf' with options
+(fontspec)             [Script={CJK},Path={fonts/},AutoFakeBold={2.17}].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS
+(fontspec)             series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.:
+(fontspec)             <->"[fonts/SimSun.ttf]/OT:script=hani;language=dflt;"
+(fontspec)             - 'bold' (b/n) with NFSS spec.:
+(fontspec)             <->"[fonts/SimSun.ttf]/OT:script=hani;language=dflt;embo
+lden=2.17;"
+
+) (./main.aux)
+\openout1 = `main.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 3.
+LaTeX Font Info:    ... okay on input line 3.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 3.
+LaTeX Font Info:    ... okay on input line 3.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 3.
+LaTeX Font Info:    ... okay on input line 3.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 3.
+LaTeX Font Info:    ... okay on input line 3.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 3.
+LaTeX Font Info:    ... okay on input line 3.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 3.
+LaTeX Font Info:    ... okay on input line 3.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 3.
+LaTeX Font Info:    ... okay on input line 3.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 3.
+LaTeX Font Info:    ... okay on input line 3.
+
+Package fontspec Info: 
+(fontspec)             Adjusting the maths setup (use [no-math] to avoid
+(fontspec)             this).
+
+\symlegacymaths=\mathgroup4
+LaTeX Font Info:    Overwriting symbol font `legacymaths' in version `bold'
+(Font)                  OT1/cmr/m/n --> OT1/cmr/bx/n on input line 3.
+LaTeX Font Info:    Redeclaring math accent \acute on input line 3.
+LaTeX Font Info:    Redeclaring math accent \grave on input line 3.
+LaTeX Font Info:    Redeclaring math accent \ddot on input line 3.
+LaTeX Font Info:    Redeclaring math accent \tilde on input line 3.
+LaTeX Font Info:    Redeclaring math accent \bar on input line 3.
+LaTeX Font Info:    Redeclaring math accent \breve on input line 3.
+LaTeX Font Info:    Redeclaring math accent \check on input line 3.
+LaTeX Font Info:    Redeclaring math accent \hat on input line 3.
+LaTeX Font Info:    Redeclaring math accent \dot on input line 3.
+LaTeX Font Info:    Redeclaring math accent \mathring on input line 3.
+LaTeX Font Info:    Redeclaring math symbol \colon on input line 3.
+LaTeX Font Info:    Redeclaring math symbol \Gamma on input line 3.
+LaTeX Font Info:    Redeclaring math symbol \Delta on input line 3.
+LaTeX Font Info:    Redeclaring math symbol \Theta on input line 3.
+LaTeX Font Info:    Redeclaring math symbol \Lambda on input line 3.
+LaTeX Font Info:    Redeclaring math symbol \Xi on input line 3.
+LaTeX Font Info:    Redeclaring math symbol \Pi on input line 3.
+LaTeX Font Info:    Redeclaring math symbol \Sigma on input line 3.
+LaTeX Font Info:    Redeclaring math symbol \Upsilon on input line 3.
+LaTeX Font Info:    Redeclaring math symbol \Phi on input line 3.
+LaTeX Font Info:    Redeclaring math symbol \Psi on input line 3.
+LaTeX Font Info:    Redeclaring math symbol \Omega on input line 3.
+LaTeX Font Info:    Redeclaring math symbol \mathdollar on input line 3.
+LaTeX Font Info:    Redeclaring symbol font `operators' on input line 3.
+LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
+(Font)              `operators' in the math version `normal' on input line 3.
+LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
+(Font)                  OT1/cmr/m/n --> TU/TimesNewRoman(0)/m/n on input line 3
+.
+LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
+(Font)              `operators' in the math version `bold' on input line 3.
+LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
+(Font)                  OT1/cmr/bx/n --> TU/TimesNewRoman(0)/m/n on input line 
+3.
+LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
+(Font)                  TU/TimesNewRoman(0)/m/n --> TU/TimesNewRoman(0)/m/n on 
+input line 3.
+LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
+(Font)                  OT1/cmr/m/it --> TU/TimesNewRoman(0)/m/it on input line
+ 3.
+LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
+(Font)                  OT1/cmr/bx/n --> TU/TimesNewRoman(0)/b/n on input line 
+3.
+LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
+(Font)                  OT1/cmss/m/n --> TU/lmss/m/n on input line 3.
+LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
+(Font)                  OT1/cmtt/m/n --> TU/lmtt/m/n on input line 3.
+LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
+(Font)                  TU/TimesNewRoman(0)/m/n --> TU/TimesNewRoman(0)/b/n on 
+input line 3.
+LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
+(Font)                  OT1/cmr/bx/it --> TU/TimesNewRoman(0)/b/it on input lin
+e 3.
+LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
+(Font)                  OT1/cmss/bx/n --> TU/lmss/b/n on input line 3.
+LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
+(Font)                  OT1/cmtt/m/n --> TU/lmtt/b/n on input line 3.
+
+*geometry* driver: auto-detecting
+*geometry* detected driver: xetex
+*geometry* verbose mode - [ preamble ] result:
+* driver: xetex
+* paper: a4paper
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: 
+* h-part:(L,W,R)=(79.66771pt, 466.62521pt, 51.21495pt)
+* v-part:(T,H,B)=(71.13188pt, 665.7945pt, 108.12047pt)
+* \paperwidth=597.50787pt
+* \paperheight=845.04684pt
+* \textwidth=466.62521pt
+* \textheight=665.7945pt
+* \oddsidemargin=7.39772pt
+* \evensidemargin=7.39772pt
+* \topmargin=0.0pt
+* \headheight=20.0pt
+* \headsep=19.91692pt
+* \topskip=12.0pt
+* \footskip=18.0pt
+* \marginparwidth=38.0pt
+* \marginparsep=7.0pt
+* \columnsep=10.0pt
+* \skip\footins=10.8pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=-28.45274pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidefalse
+* \@mparswitchfalse
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: End \AtBeginDocument code.
+File: figures/logo.png Graphic file (type bmp)
+<figures/logo.png>
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <12> on input line 9.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8> on input line 9.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 9.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <16.06> on input line 9.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <14.05249> on input line 9.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <10.53937> on input line 9.
+[1
+
+
+] (./header/cabstract.tex [0
+
+]) (./header/eabstract.tex [1
+
+] [2
+
+]) (./main.toc
+[3] [4] [5] [6])
+\tf@toc=\write3
+\openout3 = `main.toc'.
+
+ [7] (./chapters/chapter1.tex
+第1章
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <12.045> on input line 5.
+[1
+
+
+]
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <10.95> on input line 40.
+ [2] [3] [4]
+
+Package fontspec Info: 
+(fontspec)             Could not resolve font "FangSong/BI" (it probably
+(fontspec)             doesn't exist).
+
+
+Package fontspec Info: 
+(fontspec)             Could not resolve font "FangSong/B" (it probably
+(fontspec)             doesn't exist).
+
+
+Package fontspec Info: 
+(fontspec)             Could not resolve font "FangSong/I" (it probably
+(fontspec)             doesn't exist).
+
+
+Package fontspec Info: 
+(fontspec)             Font family 'FangSong(0)' created for font 'FangSong'
+(fontspec)             with options [Script={CJK}].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS
+(fontspec)             series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.:
+(fontspec)             <->"FangSong/OT:script=hani;language=dflt;"
+
+ [5]) (./chapters/chapter2.tex [6]
+第2章
+
+Underfull \hbox (badness 2119) in paragraph at lines 20--20
+[]\TU/SimSun(0)/m/n/10.95 部 署 与 运 维 复 杂
+ []
+
+[7
+
+]
+Underfull \hbox (badness 1226) in paragraph at lines 59--60
+[]\TU/SimSun(0)/m/n/10.95 在 长 耗 时 生 成 场 景 中 持 续
+ []
+
+
+Underfull \hbox (badness 1226) in paragraph at lines 61--62
+[]\TU/SimSun(0)/m/n/10.95 将 风 险 控 制 前 移 到 代 码 进
+ []
+
+[8]
+Underfull \hbox (badness 1226) in paragraph at lines 102--103
+[]\TU/SimSun(0)/m/n/10.95 简 化 实 体 映 射 和 常 规 数 据
+ []
+
+
+Underfull \hbox (badness 1226) in paragraph at lines 103--104
+[]\TU/SimSun(0)/m/n/10.95 支 持 任 务 执 行 与 请 求 线 程
+ []
+
+
+Underfull \hbox (badness 1226) in paragraph at lines 104--105
+[]\TU/SimSun(0)/m/n/10.95 提 高 系 统 可 观 测 性 和 问 题
+ []
+
+[9] [10] [11]
+Underfull \hbox (badness 1226) in paragraph at lines 241--241
+[]\TU/SimSun(0)/m/n/10.95 统 一 异 常 响 应 与 任 务 失 败
+ []
+
+) (./chapters/chapter3.tex [12]
+第3章
+[13
+
+]
+File: figures/chapter3-flow-plantuml.png Graphic file (type bmp)
+<figures/chapter3-flow-plantuml.png>
+ [14]
+File: figures/用例图.png Graphic file (type bmp)
+<figures/用例图.png>
+ [15]
+Underfull \hbox (badness 1226) in paragraph at lines 86--87
+\TU/SimSun(0)/m/n/10.95 续 任 务 和 历 史 记 录 都 归 入
+ []
+
+
+Underfull \hbox (badness 2119) in paragraph at lines 89--89
+[]\TU/SimSun(0)/m/n/10.95 在 线 预 览 与 下 载
+ []
+
+
+Underfull \hbox (badness 1226) in paragraph at lines 89--90
+[]\TU/SimSun(0)/m/n/10.95 用 户 确 认 结 果 并 获 取 可 交
+ []
+
+
+Underfull \hbox (badness 2119) in paragraph at lines 90--90
+[]\TU/SimSun(0)/m/n/10.95 查 询 历 史 任 务 与
+ []
+
+
+Underfull \hbox (badness 1226) in paragraph at lines 90--91
+[]\TU/SimSun(0)/m/n/10.95 用 户 能 够 回 看 历 史 结 果 并
+ []
+
+[16] [17]) (./chapters/chapter4.tex [18]
+第4章
+File: figures/系统层次结构图.png Graphic file (type bmp)
+<figures/系统层次结构图.png>
+[19
+
+]
+File: figures/技术架构图.png Graphic file (type bmp)
+<figures/技术架构图.png>
+ [20]
+File: figures/functional-modules.png Graphic file (type bmp)
+<figures/functional-modules.png>
+
+Underfull \hbox (badness 10000) in paragraph at lines 74--74
+[]\TU/SimSun(0)/m/n/10.95 用 量 统 计 服 务、|
+ []
+
+[21] [22] [23]
+File: figures/chapter3-er-mermaid.png Graphic file (type bmp)
+<figures/chapter3-er-mermaid.png>
+
+Underfull \hbox (badness 10000) in paragraph at lines 139--139
+[]\TU/lmtt/m/n/10.95 id\TU/SimSun(0)/m/n/10.95 、| \TU/lmtt/m/n/10.95 username\T
+U/SimSun(0)/m/n/10.95 、|
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 140--140
+[]\TU/lmtt/m/n/10.95 id\TU/SimSun(0)/m/n/10.95 、| \TU/lmtt/m/n/10.95 user_id\TU
+/SimSun(0)/m/n/10.95 、| \TU/lmtt/m/n/10.95 token\TU/SimSun(0)/m/n/10.95 、|
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 141--141
+[]\TU/lmtt/m/n/10.95 id\TU/SimSun(0)/m/n/10.95 、| \TU/lmtt/m/n/10.95 workspace_
+key\TU/SimSun(0)/m/n/10.95 、|
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 142--142
+[]\TU/lmtt/m/n/10.95 id\TU/SimSun(0)/m/n/10.95 、| \TU/lmtt/m/n/10.95 owner_user
+_id\TU/SimSun(0)/m/n/10.95 、|
+ []
+
+
+Overfull \hbox (2.24211pt too wide) in paragraph at lines 156--156
+[]\TU/lmtt/m/n/10.95 generation_task| 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 156--156
+[]\TU/lmtt/m/n/10.95 id\TU/SimSun(0)/m/n/10.95 、| \TU/lmtt/m/n/10.95 project_id
+\TU/SimSun(0)/m/n/10.95 、| \TU/lmtt/m/n/10.95 prompt\TU/SimSun(0)/m/n/10.95 、|
+ []
+
+
+Overfull \hbox (13.73961pt too wide) in paragraph at lines 157--157
+[]\TU/lmtt/m/n/10.95 component_version| 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 157--157
+[]\TU/lmtt/m/n/10.95 id\TU/SimSun(0)/m/n/10.95 、| \TU/lmtt/m/n/10.95 task_id\TU
+/SimSun(0)/m/n/10.95 、| \TU/lmtt/m/n/10.95 version_no\TU/SimSun(0)/m/n/10.95 、|
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 157--158
+[]\TU/SimSun(0)/m/n/10.95 保 存 任 务 产 出 的 每 个 版 本；|
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 157--158
+\TU/lmtt/m/n/10.95 compile_ok \TU/SimSun(0)/m/n/10.95 用 于 表 示 结 构 完 整
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 158--158
+[]\TU/lmtt/m/n/10.95 id\TU/SimSun(0)/m/n/10.95 、| \TU/lmtt/m/n/10.95 task_id\TU
+/SimSun(0)/m/n/10.95 、| \TU/lmtt/m/n/10.95 provider\TU/SimSun(0)/m/n/10.95 、|
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 158--158
+\TU/lmtt/m/n/10.95 request_tokens\TU/SimSun(0)/m/n/10.95 、|
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 159--159
+[]\TU/lmtt/m/n/10.95 id\TU/SimSun(0)/m/n/10.95 、| \TU/lmtt/m/n/10.95 actor_user
+_id\TU/SimSun(0)/m/n/10.95 、|
+ []
+
+[24] [25]
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 176.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 176.
+
+Underfull \hbox (badness 10000) in paragraph at lines 184--184
+[]\TU/lmtt/m/n/10 owner_user_id,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 186--186
+[]\TU/lmtt/m/n/10 project_id,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 187--187
+[]\TU/lmtt/m/n/10 workspace_id,
+ []
+
+
+Overfull \hbox (0.59007pt too wide) in paragraph at lines 188--188
+[]\TU/lmtt/m/n/10 component_version| 
+ []
+
+
+Overfull \hbox (0.59007pt too wide) in paragraph at lines 189--189
+[]\TU/lmtt/m/n/10 component_version| 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 191--191
+[]\TU/lmtt/m/n/10 actor_user_id,
+ []
+
+[26]
+Underfull \hbox (badness 10000) in paragraph at lines 218--218
+[]\TU/lmtt/m/n/10.95 AuthService\TU/SimSun(0)/m/n/10.95 、|
+ []
+
+[27]
+Underfull \hbox (badness 1226) in paragraph at lines 246--246
+[]\TU/SimSun(0)/m/n/10.95 普 通 用 户 误 调 用 或 越 权 调
+ []
+
+
+Underfull \hbox (badness 7291) in paragraph at lines 249--250
+[]\TU/SimSun(0)/m/n/10.95 将 角 色 变 更 和 账 号 状 态 变 更 写 入
+ []
+
+[28]
+File: figures/主界面原型图.png Graphic file (type bmp)
+<figures/主界面原型图.png>
+File: figures/登录注册页面原型图.png Graphic file (type bmp)
+<figures/登录注册页面原型图.png>
+File: figures/版本管理原型图.png Graphic file (type bmp)
+<figures/版本管理原型图.png>
+File: figures/用户管理原型图.png Graphic file (type bmp)
+<figures/用户管理原型图.png>
+) (./chapters/chapter5.tex [29] [30] [31]
+第5章
+[32
+
+] [33] [34]
+File: figures/generation-stream-flow.png Graphic file (type bmp)
+<figures/generation-stream-flow.png>
+ [35] [36]
+Underfull \hbox (badness 2119) in paragraph at lines 156--156
+[]\TU/SimSun(0)/m/n/10.95 任 务 创 建 与 任 务
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 156--156
+[]\TU/lmtt/m/n/10.95 GenerationController\TU/SimSun(0)/m/n/10.95 ，|
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 157--157
+[]\TU/lmtt/m/n/10.95 GenerationStreamService\TU/SimSun(0)/m/n/10.95 ，|
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 160--160
+[]\TU/lmtt/m/n/10.95 CostControlService\TU/SimSun(0)/m/n/10.95 ，|
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 161--161
+[]\TU/lmtt/m/n/10.95 PreviewSandbox.vue\TU/SimSun(0)/m/n/10.95 ，|
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 162--162
+[]\TU/lmtt/m/n/10.95 HistoryView.vue\TU/SimSun(0)/m/n/10.95 ，|
+ []
+
+File: figures/preview-safety-flow.png Graphic file (type bmp)
+<figures/preview-safety-flow.png>
+[37] [38] [39]
+Underfull \hbox (badness 6944) in paragraph at lines 222--222
+[]\TU/SimSun(0)/m/n/10 模 型 输 出 结 构 不
+ []
+
+
+Underfull \hbox (badness 3838) in paragraph at lines 222--222
+[]\TU/SimSun(0)/m/n/10 使 用 \TU/lmtt/m/n/10 SfcCodeExtractor
+ []
+
+
+Underfull \hbox (badness 6944) in paragraph at lines 223--223
+[]\TU/SimSun(0)/m/n/10 同 一 任 务 重 复 触
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 223--223
+[]\TU/SimSun(0)/m/n/10 使 用 前 端 \TU/lmtt/m/n/10 loading \TU/SimSun(0)/m/n/10 控
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 223--223
+\TU/SimSun(0)/m/n/10 制、|  后 端 状 态 流 转 和
+ []
+
+
+Underfull \hbox (badness 1622) in paragraph at lines 223--223
+\TU/lmtt/m/n/10 runningMap \TU/SimSun(0)/m/n/10 原 子 锁 联 合
+ []
+
+
+Underfull \hbox (badness 6944) in paragraph at lines 224--224
+[]\TU/SimSun(0)/m/n/10 重 复 请 求 成 本 过
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 224--224
+[]\TU/SimSun(0)/m/n/10 使 用
+ []
+
+
+Overfull \hbox (3.5072pt too wide) in paragraph at lines 224--224
+\TU/lmtt/m/n/10 GenerationCacheService
+ []
+
+
+Underfull \hbox (badness 6944) in paragraph at lines 225--225
+[]\TU/SimSun(0)/m/n/10 预 览 代 码 污 染 宿
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 225--225
+[]\TU/SimSun(0)/m/n/10 使 用 \TU/lmtt/m/n/10 scopeCssToHost
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 225--225
+\TU/SimSun(0)/m/n/10 将 样 式 限 制 在
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 225--225
+\TU/lmtt/m/n/10 .preview-host \TU/SimSun(0)/m/n/10 容 器
+ []
+
+
+Underfull \hbox (badness 6944) in paragraph at lines 226--226
+[]\TU/SimSun(0)/m/n/10 高 风 险 脚 本 进 入
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 226--226
+\TU/SimSun(0)/m/n/10 与 前 端
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 226--226
+\TU/lmtt/m/n/10 detectUnsafeCode
+ []
+
+File: figures/主界面.png Graphic file (type bmp)
+<figures/主界面.png>
+[40]
+File: figures/登录注册.png Graphic file (type bmp)
+<figures/登录注册.png>
+File: figures/版本管理.png Graphic file (type bmp)
+<figures/版本管理.png>
+File: figures/用户管理.png Graphic file (type bmp)
+<figures/用户管理.png>
+) (./chapters/chapter6.tex [41] [42] [43]
+第6章
+[44
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 57--58
+[]\TU/SimSun(0)/m/n/10.95 验 证 \TU/lmtt/m/n/10.95 SfcCodeExtractor \TU/SimSun(0)
+/m/n/10.95 与
+ []
+
+[45]
+Underfull \hbox (badness 10000) in paragraph at lines 82--82
+[]\TU/SimSun(0)/m/n/10 调 用 \TU/lmtt/m/n/10 POST
+ []
+
+
+Overfull \hbox (2.9282pt too wide) in paragraph at lines 82--82
+\TU/lmtt/m/n/10 /workspaces/anonymous| 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 82--82
+[]\TU/SimSun(0)/m/n/10 返 回 新 的
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 82--83
+[]\TU/SimSun(0)/m/n/10 成 功 返 回 工 作
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 83--83
+[]\TU/SimSun(0)/m/n/10 提 交 用 户 名 和 密 码 到
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 83--83
+\TU/lmtt/m/n/10 POST /auth/register\TU/SimSun(0)/m/n/10 ，|
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 83--84
+[]\TU/SimSun(0)/m/n/10 注 册 成 功，|
+ []
+
+
+Underfull \hbox (badness 3826) in paragraph at lines 83--84
+\TU/lmtt/m/n/10 /auth/me \TU/SimSun(0)/m/n/10 返 回
+ []
+
+
+Underfull \hbox (badness 1259) in paragraph at lines 84--84
+[]\TU/SimSun(0)/m/n/10 使 用 伪 造 令 牌 访 问 \TU/lmtt/m/n/10 GET
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 84--85
+[]\TU/SimSun(0)/m/n/10 返 回 \TU/lmtt/m/n/10 401
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 84--85
+\TU/lmtt/m/n/10 Invalid auth
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 85--86
+[]\TU/SimSun(0)/m/n/10 成 功 返 回 项 目
+ []
+
+
+Underfull \hbox (badness 2012) in paragraph at lines 85--86
+\TU/lmtt/m/n/10 id=3 \TU/SimSun(0)/m/n/10 和 对 应 工
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 86--86
+[]\TU/SimSun(0)/m/n/10 在 合 法 项 目 和 工
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 86--86
+\TU/SimSun(0)/m/n/10 作 区 下 调 用 \TU/lmtt/m/n/10 POST
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 86--86
+[]\TU/SimSun(0)/m/n/10 创 建 任 务 并 返 回
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 86--87
+[]\TU/SimSun(0)/m/n/10 成 功 返 回
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 86--87
+\TU/lmtt/m/n/10 taskId=12\TU/SimSun(0)/m/n/10 、|  状
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 87--87
+[]\TU/SimSun(0)/m/n/10 调 用 \TU/lmtt/m/n/10 GET
+ []
+
+
+Overfull \hbox (34.4282pt too wide) in paragraph at lines 87--87
+\TU/lmtt/m/n/10 /projects/{projectId}/tasks| 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 87--88
+\TU/SimSun(0)/m/n/10 务 记 录 和 分 页
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 88--88
+[]\TU/SimSun(0)/m/n/10 普 通 用 户 访 问 \TU/lmtt/m/n/10 GET
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 88--89
+[]\TU/SimSun(0)/m/n/10 返 回 \TU/lmtt/m/n/10 403
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 88--89
+\TU/lmtt/m/n/10 Forbidden\TU/SimSun(0)/m/n/10 ，|
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 89--90
+[]\TU/SimSun(0)/m/n/10 前 \TU/TimesNewRoman(0)/m/n/10 8 \TU/SimSun(0)/m/n/10 次 成
+ 功，|
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 89--90
+\TU/SimSun(0)/m/n/10 第 \TU/TimesNewRoman(0)/m/n/10 9 \TU/SimSun(0)/m/n/10 次 返 回
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 89--90
+\TU/lmtt/m/n/10 429 Too many
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 89--90
+\TU/lmtt/m/n/10 generation
+ []
+
+[46] [47]
+Underfull \hbox (badness 10000) in paragraph at lines 118--118
+[]\TU/SimSun(0)/m/n/10.95 平 均 响 应 时
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 136--136
+[]\TU/SimSun(0)/m/n/10.95 平 均 响 应 时
+ []
+
+[48] [49]
+Underfull \hbox (badness 10000) in paragraph at lines 185--185
+[]\TU/SimSun(0)/m/n/10.95 用 户 名 \TU/lmtt/m/n/10.95 ' OR '1'='1\TU/SimSun(0)/m/n
+/10.95 ，|
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 185--185
+\TU/SimSun(0)/m/n/10.95 密 码 \TU/lmtt/m/n/10.95 123456\TU/SimSun(0)/m/n/10.95 ，|
+  请 求
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 185--186
+[]\TU/SimSun(0)/m/n/10.95 返 回 \TU/lmtt/m/n/10.95 401 Invalid
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 185--186
+\TU/lmtt/m/n/10.95 username or
+ []
+
+
+Underfull \hbox (badness 5862) in paragraph at lines 186--186
+[]\TU/SimSun(0)/m/n/10.95 不 应 恢 复 用 户 身 份，|
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 186--187
+[]\TU/SimSun(0)/m/n/10.95 返 回 \TU/lmtt/m/n/10.95 401 Invalid
+ []
+
+
+Underfull \hbox (badness 2119) in paragraph at lines 187--187
+[]\TU/SimSun(0)/m/n/10.95 普 通 用 户 访 问 管
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 187--187
+[]\TU/SimSun(0)/m/n/10.95 普 通 用 户 请 求
+ []
+
+
+Underfull \hbox (badness 5862) in paragraph at lines 187--187
+[]\TU/SimSun(0)/m/n/10.95 不 应 获 得 管 理 数 据，|
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 188--188
+[]\TU/SimSun(0)/m/n/10.95 组 件 代 码 包 含 远 程
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 188--189
+[]\TU/SimSun(0)/m/n/10.95 前 端 检 测 结 果 为
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 189--190
+[]\TU/SimSun(0)/m/n/10.95 返 回 \TU/lmtt/m/n/10.95 429 Too
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 189--190
+\TU/lmtt/m/n/10.95 many generation
+ []
+
+[50]) (./chapters/chapter7.tex [51]
+第7章
+[52
+
+] [53] [54]) (./main.bbl [55] [56
+
+] [57]) (./header/Acknowledgements.tex
+[58]) [59
+
+] (./main.aux)
+ ***********
+LaTeX2e <2025-11-01>
+L3 programming layer <2022/07/14>
+ ***********
+ ) 
+Here is how much of TeX's memory you used:
+ 15488 strings out of 467992
+ 402359 string characters out of 5433177
+ 815613 words of memory out of 5000000
+ 44104 multiletter control sequences out of 15000+600000
+ 637246 words of font info for 138 fonts, out of 8000000 for 9000
+ 1348 hyphenation exceptions out of 8191
+ 107i,13n,125p,1195b,1274s stack positions out of 10000i,1000n,20000p,200000b,200000s
+
+Output written on main.xdv (68 pages, 880120 bytes).

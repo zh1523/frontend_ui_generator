@@ -1,0 +1,39 @@
+%%{init: {"theme":"neutral","flowchart":{"curve":"linear"}}}%%
+flowchart TB
+    subgraph P1[输入检查阶段]
+        direction TB
+        A[加载待预览代码]
+        B{代码是否为空}
+        C[提示暂无可预览内容]
+        A --> B
+        B -- 是 --> C
+    end
+
+    subgraph P2[安全与解析阶段]
+        direction TB
+        D[执行安全检查]
+        E{是否命中风险规则}
+        F[阻止渲染并提示风险原因]
+        G[解析模板、脚本和样式]
+        D --> E
+        E -- 是 --> F
+        E -- 否 --> G
+    end
+
+    subgraph P3[预览展示阶段]
+        direction TB
+        H[构造预览状态并挂载组件]
+        I{预览是否成功}
+        J[展示预览结果]
+        K[显示解析或运行错误]
+        H --> I
+        I -- 是 --> J
+        I -- 否 --> K
+    end
+
+    B -- 否 --> D
+    G --> H
+    C --> L([流程结束])
+    F --> L
+    J --> L
+    K --> L

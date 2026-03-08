@@ -1,0 +1,54 @@
+\documentclass{JLUThesis}
+
+\begin{document}
+
+% cover style
+\coverstyle
+
+% 封面
+\makecover
+
+% 承诺书
+\commitment
+
+% header style
+\headerstyle
+
+% 中文摘要
+\input{header/cabstract}
+
+% 英文摘要
+\input{header/eabstract}
+
+% 目录
+\tableofcontents
+\cleardoublepage
+
+% 正文
+% content style
+\contentstyle
+
+% 第一章
+\input{chapters/chapter1.tex}
+% 第二章
+\input{chapters/chapter2.tex}
+% 第三章
+\input{chapters/chapter3.tex}
+% 第四章
+\input{chapters/chapter4.tex}
+% 第五章
+\input{chapters/chapter5.tex}
+% 第六章
+\input{chapters/chapter6.tex}
+% 第七章
+\input{chapters/chapter7.tex}
+
+% 参考文献
+\bibliography{Ref/refs}
+\addcontentsline{toc}{chapter}{参考文献}
+
+% 致谢
+
+\input{header/Acknowledgements.tex}
+
+\end{document}

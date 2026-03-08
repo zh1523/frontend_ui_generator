@@ -2,14 +2,13 @@ package com.example.uigen.common;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import java.util.Map;
+import java.util.UUID;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.HandlerMapping;
-
-import java.util.Map;
-import java.util.UUID;
 
 @Component
 public class ApiRequestLoggingInterceptor implements HandlerInterceptor {
@@ -32,20 +31,26 @@ public class ApiRequestLoggingInterceptor implements HandlerInterceptor {
         long cost = Math.max(0, System.currentTimeMillis() - start);
         String requestId = getRequestId(request);
         String workspaceKey = maskWorkspaceKey(request.getHeader(HttpHeadersConst.WORKSPACE_KEY));
+        String projectId = request.getHeader(HttpHeadersConst.PROJECT_ID);
+        String authTokenMasked = maskAuthToken(request.getHeader(HttpHeadersConst.AUTH_TOKEN));
+        String userId = AuthContextHolder.getUserId() == null ? "-" : String.valueOf(AuthContextHolder.getUserId());
         String clientIp = getClientIp(request);
         String taskId = getPathVar(request, "taskId");
         String versionId = getPathVar(request, "versionId");
         int status = response.getStatus();
         String errorType = ex == null ? "-" : ex.getClass().getSimpleName();
 
-        log.info("api reqId={} method={} uri={} status={} costMs={} ip={} workspace={} taskId={} versionId={} error={}",
+        log.info("api reqId={} method={} uri={} status={} costMs={} ip={} userId={} workspace={} projectId={} auth={} taskId={} versionId={} error={}",
                 requestId,
                 request.getMethod(),
                 request.getRequestURI(),
                 status,
                 cost,
                 clientIp,
+                userId,
                 workspaceKey,
+                projectId == null || projectId.isBlank() ? "-" : projectId,
+                authTokenMasked,
                 taskId,
                 versionId,
                 errorType);
@@ -104,5 +109,16 @@ public class ApiRequestLoggingInterceptor implements HandlerInterceptor {
             return xff.split(",")[0].trim();
         }
         return request.getRemoteAddr();
+    }
+
+    private String maskAuthToken(String token) {
+        if (token == null || token.isBlank()) {
+            return "-";
+        }
+        String val = token.trim();
+        if (val.length() <= 12) {
+            return "******";
+        }
+        return val.substring(0, 6) + "******" + val.substring(val.length() - 6);
     }
 }

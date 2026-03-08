@@ -6,7 +6,9 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 public record AppProperties(
         Cors cors,
         Llm llm,
-        Generation generation
+        Generation generation,
+        Auth auth,
+        Cost cost
 ) {
     public record Cors(
             String allowedOrigins
@@ -23,7 +25,20 @@ public record AppProperties(
 
     public record Generation(
             Integer maxPromptLength,
-            Integer maxComponentNameLength
+            Integer maxComponentNameLength,
+            Integer cacheTtlMinutes
+    ) {
+    }
+
+    public record Auth(
+            Integer sessionTtlHours
+    ) {
+    }
+
+    public record Cost(
+            Long dailyTokenQuota,
+            Double inputCostPer1kTokenUsd,
+            Double outputCostPer1kTokenUsd
     ) {
     }
 }

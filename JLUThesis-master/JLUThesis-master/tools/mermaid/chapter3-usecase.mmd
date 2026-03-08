@@ -1,0 +1,29 @@
+flowchart TB
+    A[管理员]:::actor
+    U[普通用户]:::actor
+
+    subgraph S[UI组件代码生成系统]
+        direction LR
+        UC1([注册与登录])
+        UC2([项目管理])
+        UC3([组件生成])
+        UC4([结果查看])
+        UC5([历史版本查询])
+        UC6([在线预览与下载])
+        UC7([用量查看])
+        UC8([用户治理与审计])
+    end
+
+    U --- UC1
+    U --- UC2
+    U --- UC3
+    U --- UC4
+    U --- UC5
+    U --- UC6
+    U --- UC7
+    A --- UC8
+
+    classDef actor fill:#ffffff,stroke:#5A6778,color:#333333,stroke-width:1.5px;
+    classDef usecase fill:#ffffff,stroke:#5A6778,color:#333333,stroke-width:1.5px;
+    class UC1,UC2,UC3,UC4,UC5,UC6,UC7,UC8 usecase;
+    style S fill:#F6F7F9,stroke:#5A6778,stroke-width:1.5px,color:#333333;

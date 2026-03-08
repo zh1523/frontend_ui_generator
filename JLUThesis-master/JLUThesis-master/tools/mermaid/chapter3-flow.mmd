@@ -1,0 +1,20 @@
+flowchart TB
+    A([登录或注册]) --> B([加载用户项目])
+    B --> C([选择或创建项目])
+    C --> D([填写组件需求])
+    D --> E([创建生成任务])
+    E --> F([限流与额度校验])
+    F --> G{缓存命中?}
+    G -->|是| H([保存缓存版本])
+    H --> I([在线预览与下载])
+    G -->|否| J([LLM 流式生成])
+    J --> K([抽取 SFC 并安全扫描])
+    K --> L{是否阻断?}
+    L -->|否| M([保存版本与调用日志])
+    M --> I
+    L -->|是| N([任务失败并返回原因])
+
+    classDef node fill:#ffffff,stroke:#5A6778,color:#333333,stroke-width:1.5px;
+    classDef decision fill:#F6F7F9,stroke:#5A6778,color:#333333,stroke-width:1.5px;
+    class A,B,C,D,E,F,H,I,J,K,M,N node;
+    class G,L decision;

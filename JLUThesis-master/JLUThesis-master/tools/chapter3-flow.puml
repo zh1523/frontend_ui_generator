@@ -1,0 +1,35 @@
+﻿@startuml
+skinparam shadowing false
+skinparam dpi 180
+skinparam defaultFontName Microsoft YaHei
+skinparam activity {
+  BackgroundColor white
+  BorderColor #5A6778
+  ArrowColor #7A8591
+  DiamondBackgroundColor #F6F7F9
+  DiamondBorderColor #5A6778
+  StartColor #5A6778
+  EndColor #5A6778
+}
+start
+:登录或注册;
+:加载用户项目;
+:选择或创建项目;
+:填写组件需求;
+:创建生成任务;
+:限流与额度校验;
+if (缓存命中?) then (是)
+  :保存缓存版本;
+  :在线预览与下载;
+else (否)
+  :LLM 流式生成;
+  :抽取 SFC 并安全扫描;
+  if (是否阻断?) then (是)
+    :任务失败并返回原因;
+  else (否)
+    :保存版本与调用日志;
+    :在线预览与下载;
+  endif
+endif
+stop
+@enduml

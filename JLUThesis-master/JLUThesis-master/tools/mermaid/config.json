@@ -1,0 +1,19 @@
+{
+  "theme": "base",
+  "themeVariables": {
+    "fontFamily": "Microsoft YaHei",
+    "primaryColor": "#ffffff",
+    "primaryTextColor": "#333333",
+    "primaryBorderColor": "#5A6778",
+    "lineColor": "#7A8591",
+    "secondaryColor": "#F6F7F9",
+    "tertiaryColor": "#F6F7F9",
+    "background": "#ffffff"
+  },
+  "flowchart": {
+    "curve": "linear",
+    "nodeSpacing": 28,
+    "rankSpacing": 40,
+    "htmlLabels": false
+  }
+}

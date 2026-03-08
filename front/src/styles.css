@@ -30,26 +30,26 @@
 }
 
 :root[data-theme="dark"] {
-  --ui-primary: #6aa9ff;
-  --ui-accent: #37cbb8;
-  --ui-bg: #0f1722;
-  --ui-bg-soft: #111e2d;
-  --ui-card: #162334;
-  --ui-border: #2b3a50;
-  --ui-border-soft: #243449;
-  --ui-text-strong: #e6eef8;
-  --ui-text-normal: #c6d3e3;
-  --ui-text-subtle: #8ea2ba;
-  --ui-success: #3aca98;
-  --ui-danger: #ff7f95;
-  --ui-warning: #efbe56;
+  --ui-primary: #10a37f;
+  --ui-accent: #3b82f6;
+  --ui-bg: #1f1f1f;
+  --ui-bg-soft: #232323;
+  --ui-card: #2a2a2a;
+  --ui-border: #3a3a3a;
+  --ui-border-soft: #343434;
+  --ui-text-strong: #ececec;
+  --ui-text-normal: #d4d4d4;
+  --ui-text-subtle: #a3a3a3;
+  --ui-success: #35c58a;
+  --ui-danger: #ff7d7d;
+  --ui-warning: #f0b55d;
   --ui-shadow-card: 0 8px 22px rgba(0, 0, 0, 0.35);
-  --ui-shadow-soft: 0 4px 14px rgba(0, 0, 0, 0.25);
-  --ui-shadow-header: 0 2px 16px rgba(0, 0, 0, 0.35);
-  --ui-header-bg: linear-gradient(180deg, rgba(18, 32, 48, 0.94), rgba(16, 28, 43, 0.9));
-  --ui-preview-bg: linear-gradient(180deg, #132437, #112031);
-  --ui-surface-1: #142131;
-  --ui-surface-2: #17283d;
+  --ui-shadow-soft: 0 4px 12px rgba(0, 0, 0, 0.28);
+  --ui-shadow-header: 0 2px 14px rgba(0, 0, 0, 0.35);
+  --ui-header-bg: linear-gradient(180deg, rgba(39, 39, 39, 0.96), rgba(30, 30, 30, 0.94));
+  --ui-preview-bg: linear-gradient(180deg, #2b2b2b, #242424);
+  --ui-surface-1: #2f2f2f;
+  --ui-surface-2: #353535;
 }
 
 * {
@@ -62,6 +62,10 @@ body {
   color: var(--ui-text-normal);
   background: radial-gradient(circle at top right, color-mix(in srgb, var(--ui-primary) 12%, transparent), transparent 32%),
     radial-gradient(circle at top left, color-mix(in srgb, var(--ui-accent) 14%, transparent), transparent 35%), var(--ui-bg);
+}
+
+html[data-theme="dark"] body {
+  background: #1f1f1f;
 }
 
 .page {
@@ -154,6 +158,24 @@ body {
   background: var(--ui-card);
   border-color: var(--ui-border);
   color: var(--ui-text-normal);
+}
+
+html[data-theme="dark"] .el-tag.el-tag--info {
+  background: #313131;
+  border-color: #484848;
+  color: #cfcfcf;
+}
+
+html[data-theme="dark"] .el-alert--info {
+  --el-alert-bg-color: #2f2f2f;
+  --el-alert-text-color: #d5d5d5;
+  --el-alert-border-color: #454545;
+}
+
+html[data-theme="dark"] .el-alert--error {
+  --el-alert-bg-color: #3a2727;
+  --el-alert-text-color: #ffd7d7;
+  --el-alert-border-color: #5a3c3c;
 }
 
 .el-pagination button,
