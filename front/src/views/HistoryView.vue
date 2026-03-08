@@ -1,26 +1,26 @@
 <template>
   <div class="page">
     <div class="page-head">
-      <h1 class="page-title">History & Versions</h1>
-      <p class="page-desc">Select a task, browse version records, open a version in generator page, or download source file.</p>
+      <h1 class="page-title">历史版本</h1>
+      <p class="page-desc">选择任务后可查看版本列表，点击打开跳转到生成页进行代码与预览查看。</p>
     </div>
     <el-row :gutter="16">
       <el-col :xs="24" :lg="12">
         <el-card class="section-card content-card">
           <template #header>
             <div class="header-row">
-              <span class="accent-title">Tasks</span>
-              <el-button size="small" class="refresh-btn" @click="loadTasks">Refresh</el-button>
+              <span class="accent-title">任务列表</span>
+              <el-button size="small" class="refresh-btn" @click="loadTasks">刷新</el-button>
             </div>
           </template>
           <el-table :data="tasks" border height="560" @row-click="handleSelectTask">
-            <el-table-column prop="id" label="Task" width="80" />
-            <el-table-column prop="componentName" label="Component" min-width="140" />
-            <el-table-column prop="status" label="Status" width="120" />
-            <el-table-column prop="latestVersionNo" label="Latest Ver" width="100" />
-            <el-table-column label="Actions" width="120">
+            <el-table-column prop="id" label="任务ID" width="90" />
+            <el-table-column prop="componentName" label="组件名" min-width="140" />
+            <el-table-column prop="status" label="状态" width="120" />
+            <el-table-column prop="latestVersionNo" label="最新版本" width="110" />
+            <el-table-column label="操作" width="120">
               <template #default="{ row }">
-                <el-button size="small" type="primary" @click.stop="goRegenerate(row)">Regenerate</el-button>
+                <el-button size="small" type="primary" @click.stop="goRegenerate(row)">重新生成</el-button>
               </template>
             </el-table-column>
           </el-table>
@@ -38,29 +38,29 @@
         <el-card class="section-card content-card">
           <template #header>
             <div class="header-row">
-              <span class="accent-title">Versions of Task #{{ selectedTaskId || "-" }}</span>
-              <el-tag type="info">Use Open button to jump to Generator</el-tag>
+              <span class="accent-title">任务 #{{ selectedTaskId || "-" }} 的版本</span>
+              <el-tag type="info">点击“打开”跳转到生成页面</el-tag>
             </div>
           </template>
-          <el-empty v-if="!selectedTaskId" description="Select a task to view versions" />
+          <el-empty v-if="!selectedTaskId" description="请先在左侧选择一个任务" />
           <el-table v-else :data="versions" border height="560">
-            <el-table-column prop="versionNo" label="Version" width="90" />
-            <el-table-column prop="safetyLevel" label="Safety" width="110" />
-            <el-table-column prop="compileOk" label="Compile" width="100">
+            <el-table-column prop="versionNo" label="版本号" width="90" />
+            <el-table-column prop="safetyLevel" label="安全级别" width="110" />
+            <el-table-column prop="compileOk" label="编译结果" width="100">
               <template #default="{ row }">
                 <el-tag :type="row.compileOk ? 'success' : 'danger'" size="small">
-                  {{ row.compileOk ? "OK" : "Fail" }}
+                  {{ row.compileOk ? "通过" : "失败" }}
                 </el-tag>
               </template>
             </el-table-column>
-            <el-table-column prop="createdAt" label="Created At" min-width="180" />
-            <el-table-column label="Actions" width="180">
+            <el-table-column prop="createdAt" label="创建时间" min-width="180" />
+            <el-table-column label="操作" width="180">
               <template #default="{ row }">
                 <el-button size="small" type="primary" class="open-btn" @click.stop="handleOpenVersion(row)">
-                  Open
+                  打开
                 </el-button>
                 <el-button size="small" class="download-btn" :disabled="!row.id" @click.stop="handleDownload(row.id)">
-                  .vue
+                  下载 .vue
                 </el-button>
               </template>
             </el-table-column>
@@ -126,7 +126,7 @@ async function handleDownload(versionId) {
   anchor.download = `component_v${versionId}.vue`;
   anchor.click();
   URL.revokeObjectURL(url);
-  ElMessage.success("Download started");
+  ElMessage.success("开始下载");
 }
 
 function goRegenerate(row) {

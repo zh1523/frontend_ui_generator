@@ -3,16 +3,19 @@
     <el-header class="app-header">
       <div class="header-inner">
         <div class="brand">
-          <div class="brand-title">UI Component Generator</div>
-          <div class="brand-subtitle">Natural language to Vue component workflow</div>
+          <div class="brand-title">
+            前端UI生成工具
+            <el-tag size="small" type="success" effect="plain">Beta</el-tag>
+          </div>
+          <div class="brand-subtitle">自然语言描述生成 Vue 组件代码与预览</div>
         </div>
         <div class="header-actions">
           <el-menu class="main-menu" mode="horizontal" :ellipsis="false" :default-active="activeMenu" router>
-            <el-menu-item index="/">Generate</el-menu-item>
-            <el-menu-item index="/history">History</el-menu-item>
+            <el-menu-item index="/">生成</el-menu-item>
+            <el-menu-item index="/history">历史版本</el-menu-item>
           </el-menu>
           <el-button class="theme-btn" @click="themeStore.toggle">
-            {{ themeStore.isDark ? "Light" : "Dark" }}
+            {{ themeStore.isDark ? "浅色" : "深色" }}
           </el-button>
         </div>
       </div>
@@ -79,6 +82,9 @@ const activeMenu = computed(() => {
   line-height: 1.2;
   font-weight: 700;
   color: var(--ui-text-strong);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
 }
 
 .brand-subtitle {

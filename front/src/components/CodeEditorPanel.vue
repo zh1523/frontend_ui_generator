@@ -1,8 +1,8 @@
 <template>
   <div class="panel">
     <div class="panel-header">
-      <h3>Generated Vue SFC</h3>
-      <el-tag size="small" type="info">{{ lineCount }} lines</el-tag>
+      <h3>生成代码</h3>
+      <el-tag size="small" type="info">{{ lineCount }} 行</el-tag>
     </div>
     <el-input
       type="textarea"
@@ -10,7 +10,7 @@
       :model-value="modelValue"
       @update:model-value="$emit('update:modelValue', $event)"
       class="code-input"
-      placeholder="Generated code will appear here..."
+      placeholder="生成的 Vue 组件代码将显示在这里..."
     />
   </div>
 </template>

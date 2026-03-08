@@ -1,14 +1,14 @@
 <template>
   <div class="panel">
     <div class="panel-header">
-      <h3>Preview Sandbox</h3>
+      <h3>预览区域</h3>
       <el-tag :type="unsafe ? 'danger' : 'success'" size="small">
-        {{ unsafe ? "Blocked" : "Safe" }}
+        {{ unsafe ? "已拦截" : "安全" }}
       </el-tag>
     </div>
-    <div v-if="!code" class="empty">No code available</div>
+    <div v-if="!code" class="empty">暂无可预览代码</div>
     <div v-else-if="unsafe" class="empty">
-      This code is blocked by frontend sandbox policy.
+      该代码触发前端沙箱策略，已被拦截。
     </div>
     <div v-else class="preview-wrapper">
       <component :is="runtimeComponent" />
@@ -31,7 +31,7 @@ const unsafe = computed(() => detectUnsafeCode(props.code));
 
 const runtimeComponent = computed(() => {
   const sections = parseSfcSections(props.code);
-  const template = extractTemplateBody(sections.template) || "<div>Preview unavailable</div>";
+  const template = extractTemplateBody(sections.template) || "<div>预览不可用</div>";
   const style = extractStyleBody(sections.style);
   const parsedState = extractSimpleState(sections.script);
   const { fallbackState, fallbackMethods } = buildTemplateFallbacks(template, parsedState);

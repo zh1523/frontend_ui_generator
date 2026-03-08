@@ -1,52 +1,48 @@
 <template>
   <div class="page">
-    <div class="page-head">
-      <h1 class="page-title">Generate Component</h1>
-      <p class="page-desc">Describe UI requirements, generate code with streaming output, then preview and download.</p>
-    </div>
     <el-row :gutter="16">
       <el-col :xs="24" :lg="10">
         <el-card class="section-card left-card">
           <template #header>
-            <div class="card-header accent-title">Prompt to Component</div>
+            <div class="card-header accent-title">描述生成组件</div>
           </template>
           <el-form label-position="top">
             <div class="form-group subtle-card">
-              <el-form-item label="Component Name">
+              <el-form-item label="组件名称">
                 <el-input v-model="form.componentName" maxlength="80" />
               </el-form-item>
             </div>
             <div class="form-group subtle-card">
-              <el-form-item label="Prompt">
+              <el-form-item label="需求描述">
                 <el-input
                   v-model="form.prompt"
                   type="textarea"
                   :rows="8"
                   maxlength="2000"
                   show-word-limit
-                  placeholder="e.g. A user table with search box and pagination"
+                  placeholder="例如：一个带搜索框和分页功能的用户列表表格"
                 />
               </el-form-item>
             </div>
             <div class="form-group subtle-card">
-              <el-form-item label="Constraints(JSON)">
+              <el-form-item label="约束(JSON)">
                 <el-input
                   v-model="form.constraints"
                   type="textarea"
                   :rows="4"
-                  placeholder='e.g. {"theme":"light","language":"zh-CN"}'
+                  placeholder='例如：{"theme":"light","language":"zh-CN"}'
                 />
               </el-form-item>
             </div>
           </el-form>
           <div class="action-row">
             <el-button class="btn-main" type="primary" :loading="loading" @click="handleCreateAndStream">
-              Generate
+              生成
             </el-button>
             <el-button class="btn-sub" :disabled="!taskId || loading" @click="handleRegenerate">
-              Regenerate
+              重新生成
             </el-button>
-            <el-button class="btn-sub" :disabled="!versionId" @click="handleDownload">Download .vue</el-button>
+            <el-button class="btn-sub" :disabled="!versionId" @click="handleDownload">下载 .vue</el-button>
           </div>
           <el-alert
             v-if="errorMessage"
@@ -65,8 +61,8 @@
             class="status-box"
           />
           <div class="stream-box subtle-card">
-            <div class="stream-title accent-title">SSE Stream</div>
-            <pre>{{ streamText || "Waiting for generation..." }}</pre>
+            <div class="stream-title accent-title">流式输出</div>
+            <pre>{{ streamText || "等待生成中..." }}</pre>
           </div>
         </el-card>
       </el-col>
@@ -125,7 +121,7 @@ const statusLabel = computed(() => {
   if (!taskId.value) {
     return "";
   }
-  return `Task #${taskId.value} - ${currentStatus.value}`;
+  return `任务 #${taskId.value} - ${currentStatus.value}`;
 });
 
 onMounted(async () => {
@@ -257,7 +253,7 @@ function onSseEvent({ event, data }) {
     return;
   }
   if (event === "error") {
-    errorMessage.value = data.message || "Generation failed";
+    errorMessage.value = data.message || "生成失败";
     currentStatus.value = "FAILED";
     return;
   }
@@ -277,7 +273,7 @@ async function handleDownload() {
   anchor.download = `${form.componentName || "GeneratedComponent"}.vue`;
   anchor.click();
   URL.revokeObjectURL(url);
-  ElMessage.success("Download started");
+  ElMessage.success("开始下载");
 }
 
 function hydrateFormFromDraft() {
@@ -290,10 +286,6 @@ function hydrateFormFromDraft() {
 <style scoped>
 .card-header {
   font-weight: 700;
-}
-
-.page-head {
-  margin-bottom: 14px;
 }
 
 .left-card {
