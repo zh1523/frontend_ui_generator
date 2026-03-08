@@ -342,7 +342,7 @@ function hydrateFormFromDraft() {
   overflow: auto;
   font-family: "Consolas", "Courier New", monospace;
   font-size: 12px;
-  color: #18344c;
+  color: var(--ui-text-normal);
 }
 
 .preview-top {

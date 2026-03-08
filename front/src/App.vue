@@ -6,10 +6,15 @@
           <div class="brand-title">UI Component Generator</div>
           <div class="brand-subtitle">Natural language to Vue component workflow</div>
         </div>
-        <el-menu class="main-menu" mode="horizontal" :ellipsis="false" :default-active="activeMenu" router>
-          <el-menu-item index="/">Generate</el-menu-item>
-          <el-menu-item index="/history">History</el-menu-item>
-        </el-menu>
+        <div class="header-actions">
+          <el-menu class="main-menu" mode="horizontal" :ellipsis="false" :default-active="activeMenu" router>
+            <el-menu-item index="/">Generate</el-menu-item>
+            <el-menu-item index="/history">History</el-menu-item>
+          </el-menu>
+          <el-button class="theme-btn" @click="themeStore.toggle">
+            {{ themeStore.isDark ? "Light" : "Dark" }}
+          </el-button>
+        </div>
       </div>
     </el-header>
     <el-main class="app-main">
@@ -21,10 +26,17 @@
 </template>
 
 <script setup>
-import { computed } from "vue";
+import { computed, onMounted } from "vue";
 import { useRoute } from "vue-router";
+import { useThemeStore } from "@/stores/theme";
 
 const route = useRoute();
+const themeStore = useThemeStore();
+
+onMounted(() => {
+  themeStore.init();
+});
+
 const activeMenu = computed(() => {
   if (route.path.startsWith("/history")) {
     return "/history";
@@ -40,11 +52,15 @@ const activeMenu = computed(() => {
 
 .app-header {
   border-bottom: 1px solid var(--ui-border-soft);
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(246, 250, 255, 0.96));
+  background: var(--ui-header-bg);
   backdrop-filter: blur(6px);
   height: 72px;
   display: flex;
   align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: var(--ui-shadow-header);
 }
 
 .header-inner {
@@ -71,6 +87,12 @@ const activeMenu = computed(() => {
   color: var(--ui-text-subtle);
 }
 
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
 :deep(.main-menu.el-menu) {
   border-bottom: none;
   background: transparent;
@@ -78,6 +100,13 @@ const activeMenu = computed(() => {
 
 :deep(.main-menu .el-menu-item) {
   border-bottom-width: 3px;
+}
+
+.theme-btn {
+  min-width: 74px;
+  border-color: var(--ui-border);
+  color: var(--ui-text-normal);
+  background: var(--ui-card);
 }
 
 .main-inner {
@@ -96,6 +125,11 @@ const activeMenu = computed(() => {
   .header-inner {
     flex-direction: column;
     align-items: flex-start;
+  }
+
+  .header-actions {
+    width: 100%;
+    justify-content: space-between;
   }
 
   .main-inner {

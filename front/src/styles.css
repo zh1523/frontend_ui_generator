@@ -1,7 +1,12 @@
 :root {
   font-family: "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
   line-height: 1.5;
-  color: #1f2a3d;
+  --ui-radius-md: 12px;
+  --ui-radius-sm: 8px;
+}
+
+:root,
+:root[data-theme="light"] {
   --ui-primary: #2f7bff;
   --ui-accent: #17b6a1;
   --ui-bg: #f2f7fb;
@@ -15,10 +20,36 @@
   --ui-success: #21a779;
   --ui-danger: #e1526e;
   --ui-warning: #d58a16;
-  --ui-radius-md: 12px;
-  --ui-radius-sm: 8px;
   --ui-shadow-card: 0 6px 18px rgba(24, 76, 120, 0.08);
   --ui-shadow-soft: 0 3px 10px rgba(24, 76, 120, 0.05);
+  --ui-shadow-header: 0 2px 16px rgba(29, 83, 130, 0.08);
+  --ui-header-bg: linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(246, 250, 255, 0.96));
+  --ui-preview-bg: linear-gradient(180deg, #f8fbff, #f4fbff);
+  --ui-surface-1: #f5f9fd;
+  --ui-surface-2: #eef5fb;
+}
+
+:root[data-theme="dark"] {
+  --ui-primary: #6aa9ff;
+  --ui-accent: #37cbb8;
+  --ui-bg: #0f1722;
+  --ui-bg-soft: #111e2d;
+  --ui-card: #162334;
+  --ui-border: #2b3a50;
+  --ui-border-soft: #243449;
+  --ui-text-strong: #e6eef8;
+  --ui-text-normal: #c6d3e3;
+  --ui-text-subtle: #8ea2ba;
+  --ui-success: #3aca98;
+  --ui-danger: #ff7f95;
+  --ui-warning: #efbe56;
+  --ui-shadow-card: 0 8px 22px rgba(0, 0, 0, 0.35);
+  --ui-shadow-soft: 0 4px 14px rgba(0, 0, 0, 0.25);
+  --ui-shadow-header: 0 2px 16px rgba(0, 0, 0, 0.35);
+  --ui-header-bg: linear-gradient(180deg, rgba(18, 32, 48, 0.94), rgba(16, 28, 43, 0.9));
+  --ui-preview-bg: linear-gradient(180deg, #132437, #112031);
+  --ui-surface-1: #142131;
+  --ui-surface-2: #17283d;
 }
 
 * {
@@ -28,9 +59,9 @@
 body {
   margin: 0;
   min-width: 360px;
-  background: radial-gradient(circle at top right, rgba(47, 123, 255, 0.08), transparent 32%),
-    radial-gradient(circle at top left, rgba(23, 182, 161, 0.1), transparent 35%), var(--ui-bg);
   color: var(--ui-text-normal);
+  background: radial-gradient(circle at top right, color-mix(in srgb, var(--ui-primary) 12%, transparent), transparent 32%),
+    radial-gradient(circle at top left, color-mix(in srgb, var(--ui-accent) 14%, transparent), transparent 35%), var(--ui-bg);
 }
 
 .page {
@@ -77,4 +108,57 @@ body {
   height: 16px;
   border-radius: 99px;
   background: linear-gradient(180deg, var(--ui-primary), var(--ui-accent));
+}
+
+/* Element Plus theme surface */
+.el-card {
+  background: var(--ui-card) !important;
+  border-color: var(--ui-border-soft) !important;
+  color: var(--ui-text-normal);
+}
+
+.el-card__header {
+  border-bottom-color: var(--ui-border-soft) !important;
+}
+
+.el-table {
+  --el-table-border-color: var(--ui-border-soft);
+  --el-table-header-bg-color: var(--ui-surface-2);
+  --el-table-row-hover-bg-color: var(--ui-surface-1);
+  --el-table-text-color: var(--ui-text-normal);
+  --el-table-header-text-color: var(--ui-text-strong);
+  --el-table-bg-color: transparent;
+  --el-bg-color: transparent;
+}
+
+.el-table tr,
+.el-table th.el-table__cell,
+.el-table td.el-table__cell {
+  background-color: transparent !important;
+}
+
+.el-input__wrapper,
+.el-textarea__inner {
+  background: var(--ui-surface-1) !important;
+  box-shadow: 0 0 0 1px var(--ui-border) inset !important;
+  color: var(--ui-text-normal) !important;
+}
+
+.el-input__inner,
+.el-textarea__inner::placeholder,
+.el-input__inner::placeholder {
+  color: var(--ui-text-subtle) !important;
+}
+
+.el-button:not(.el-button--primary) {
+  background: var(--ui-card);
+  border-color: var(--ui-border);
+  color: var(--ui-text-normal);
+}
+
+.el-pagination button,
+.el-pager li {
+  background: var(--ui-card) !important;
+  color: var(--ui-text-normal) !important;
+  border-color: var(--ui-border-soft) !important;
 }
