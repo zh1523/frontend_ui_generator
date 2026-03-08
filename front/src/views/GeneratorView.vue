@@ -75,7 +75,7 @@
 </template>
 
 <script setup>
-import { computed, onMounted, reactive, ref } from "vue";
+import { computed, onMounted, reactive, ref, watch } from "vue";
 import { ElMessage } from "element-plus";
 import { useRoute, useRouter } from "vue-router";
 import CodeEditorPanel from "@/components/CodeEditorPanel.vue";
@@ -89,13 +89,15 @@ import {
   streamGenerationTask
 } from "@/api/generation";
 import { useWorkspaceStore } from "@/stores/workspace";
+import { useGeneratorDraftStore } from "@/stores/generatorDraft";
 
 const workspaceStore = useWorkspaceStore();
+const generatorDraftStore = useGeneratorDraftStore();
 const route = useRoute();
 const router = useRouter();
 
 const form = reactive({
-  prompt: "一个带搜索框和分页功能的用户列表表格",
+  prompt: "",
   componentName: "UserTable",
   constraints: "{}"
 });
@@ -118,21 +120,51 @@ const statusLabel = computed(() => {
 
 onMounted(async () => {
   await workspaceStore.ensureWorkspace();
+  generatorDraftStore.init();
+  hydrateFormFromDraft();
   await initFromQuery();
 });
 
+watch(
+  () => [form.prompt, form.componentName, form.constraints],
+  ([prompt, componentName, constraints]) => {
+    generatorDraftStore.saveDraft({ prompt, componentName, constraints });
+  }
+);
+
 async function initFromQuery() {
   const queryTaskId = Number(route.query.taskId);
-  if (!queryTaskId) {
-    return;
+  const queryVersionId = Number(route.query.versionId);
+
+  if (queryTaskId) {
+    taskId.value = queryTaskId;
+    const task = await getGenerationTask(taskId.value, workspaceStore.workspaceKey);
+    if (task.componentName) {
+      form.componentName = task.componentName;
+    }
+    if (task.prompt) {
+      form.prompt = task.prompt;
+    }
+    if (task.constraints) {
+      form.constraints = task.constraints;
+    }
   }
-  taskId.value = queryTaskId;
-  const task = await getGenerationTask(taskId.value, workspaceStore.workspaceKey);
-  if (task.latestVersion) {
-    versionId.value = task.latestVersion.id;
+
+  if (queryVersionId) {
+    versionId.value = queryVersionId;
     const version = await getVersionDetail(versionId.value, workspaceStore.workspaceKey);
-    generatedCode.value = version.vueCode;
+    generatedCode.value = version.vueCode || "";
+    currentStatus.value = "SUCCEEDED";
+  } else if (queryTaskId) {
+    const task = await getGenerationTask(taskId.value, workspaceStore.workspaceKey);
+    if (task.latestVersion) {
+      versionId.value = task.latestVersion.id;
+      const version = await getVersionDetail(versionId.value, workspaceStore.workspaceKey);
+      generatedCode.value = version.vueCode || "";
+      currentStatus.value = "SUCCEEDED";
+    }
   }
+
   if (route.query.regenerate === "1") {
     await handleRegenerate();
     await router.replace({ path: "/" });
@@ -236,6 +268,12 @@ async function handleDownload() {
   anchor.click();
   URL.revokeObjectURL(url);
   ElMessage.success("Download started");
+}
+
+function hydrateFormFromDraft() {
+  form.prompt = generatorDraftStore.prompt;
+  form.componentName = generatorDraftStore.componentName;
+  form.constraints = generatorDraftStore.constraints;
 }
 </script>
 
