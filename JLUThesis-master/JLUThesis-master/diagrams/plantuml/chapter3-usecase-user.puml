@@ -1,0 +1,39 @@
+@startuml
+left to right direction
+skinparam defaultFontName Microsoft YaHei
+skinparam shadowing false
+skinparam packageStyle rectangle
+skinparam usecase {
+  BorderColor #333333
+  BackgroundColor #FFFFFF
+}
+skinparam actor {
+  BorderColor #333333
+}
+
+actor 用户 as User
+actor 管理员 as Admin
+
+rectangle "UI组件代码生成系统" {
+  usecase "注册登录" as UC1
+  usecase "生成组件代码" as UC2
+  usecase "在线预览" as UC3
+  usecase "下载文件" as UC4
+  usecase "项目与版本管理" as UC5
+  usecase "用户查询" as UC6
+  usecase "权限更改" as UC7
+  usecase "账号启停" as UC8
+  usecase "日志查看" as UC9
+}
+
+User --> UC1
+User --> UC2
+User --> UC3
+User --> UC4
+User --> UC5
+
+Admin --> UC6
+Admin --> UC7
+Admin --> UC8
+Admin --> UC9
+@enduml

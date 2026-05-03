@@ -1,9 +1,10 @@
-<template>
+﻿<template>
   <div class="page">
     <div class="page-head">
       <h1 class="page-title">历史版本</h1>
-      <p class="page-desc">选择任务后可查看版本列表，点击打开跳转到生成页进行代码与预览查看。</p>
+      <p class="page-desc">选择任务后可查看版本列表，点击“打开”跳转到生成页面查看代码与预览。</p>
     </div>
+
     <el-row :gutter="16">
       <el-col :xs="24" :lg="12">
         <el-card class="section-card content-card">
@@ -13,6 +14,7 @@
               <el-button size="small" class="refresh-btn" @click="loadTasks">刷新</el-button>
             </div>
           </template>
+
           <el-table :data="tasks" border height="560" @row-click="handleSelectTask">
             <el-table-column prop="id" label="任务ID" width="90" />
             <el-table-column prop="componentName" label="组件名" min-width="140" />
@@ -24,6 +26,7 @@
               </template>
             </el-table-column>
           </el-table>
+
           <el-pagination
             class="pager"
             layout="prev, pager, next"
@@ -34,15 +37,18 @@
           />
         </el-card>
       </el-col>
+
       <el-col :xs="24" :lg="12">
         <el-card class="section-card content-card">
           <template #header>
             <div class="header-row">
               <span class="accent-title">任务 #{{ selectedTaskId || "-" }} 的版本</span>
-              <el-tag type="info">点击“打开”跳转到生成页面</el-tag>
+              <el-tag type="info">点击“打开”跳转到生成页</el-tag>
             </div>
           </template>
+
           <el-empty v-if="!selectedTaskId" description="请先在左侧选择一个任务" />
+
           <el-table v-else :data="versions" border height="560">
             <el-table-column prop="versionNo" label="版本号" width="90" />
             <el-table-column prop="safetyLevel" label="安全级别" width="110" />

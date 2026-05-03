@@ -1,0 +1,203 @@
+\chapter{系统测试}
+
+\setlength{\textfloatsep}{10pt plus 2pt minus 2pt}
+\setlength{\floatsep}{10pt plus 2pt minus 2pt}
+\setlength{\intextsep}{10pt plus 2pt minus 2pt}
+\setlength{\abovecaptionskip}{4pt}
+\setlength{\belowcaptionskip}{0pt}
+\renewcommand{\topfraction}{0.9}
+\renewcommand{\bottomfraction}{0.8}
+\renewcommand{\textfraction}{0.08}
+\renewcommand{\floatpagefraction}{0.8}
+
+系统测试的目标是验证前文设计与实现是否能够在实际运行环境中稳定工作。本章围绕测试环境部署、功能测试、性能测试、安全测试和测试结论展开。测试数据主要来源于 2026 年 4 月 24 日的本地实际运行结果，其中后端服务已成功启动在 \texttt{8080} 端口，数据库连接到 MySQL 8.0.32，应用启动耗时约 4.479 s，说明系统已具备进入综合测试阶段的运行基础。
+
+\section{测试环境部署}
+
+\subsection{测试环境说明}
+测试环境沿用第五章的开发部署环境，保证测试结果与实际开发运行条件一致。后端采用 Java 17 与 Spring Boot 3.4.3，前端采用 Vue 3 与 Vite 6.4.1，数据库采用 MySQL 8.0.32。本次测试未单独搭建分布式环境，主要目的是验证论文原型系统在单机部署条件下的功能完整性、响应性能与安全控制能力。测试环境中的运行时与框架版本与对应官方文档保持一致，便于结果复现和后续排错（Java SE 17 Documentation）（Spring Boot Reference Documentation）（Vue.js Documentation）（Vite Documentation）（MySQL 8.0 Reference Manual）\cite{oraclejava17docs2025}\cite{springbootdocs2025}\cite{vuedocs2025}\cite{vitedocs2025}\cite{mysqldocs2025}。
+
+为了避免外部变量干扰，功能测试与性能测试主要针对本地可独立完成处理的接口执行，重点包括认证接口、项目接口、任务创建接口、任务查询接口和权限控制接口。对于流式生成接口，由于其执行结果会受到第三方模型服务延迟影响，且系统本身设置了生成限流策略，因此在性能测试中不将其作为纯吞吐量基准接口，而将其限流效果纳入功能与稳定性验证范围。
+
+测试环境与运行组件见表 \ref{tab:chapter6-env}。其中后端启动日志已经确认 Tomcat、JPA 和 Hikari 连接池初始化成功，数据库可正常建立连接并完成实体管理。
+
+\begin{table}[!htbp]
+\centering
+\caption{系统测试环境配置}
+\label{tab:chapter6-env}
+\small
+\begin{tabular}{@{}p{0.18\textwidth}p{0.24\textwidth}p{0.36\textwidth}@{}}
+\toprule
+测试项 & 环境配置 & 说明 \\
+\midrule
+操作系统 & Windows 11 64 位 & 与开发环境一致，便于复现问题与比对日志 \\
+后端运行环境 & Java 17.0.12，Spring Boot 3.4.3 & 提供认证、项目、任务、版本和管理接口 \\
+前端运行环境 & Node.js 20.15.1，Vue 3，Vite 6.4.1 & 用于页面交互验证与前端工具函数测试 \\
+数据库 & MySQL 8.0.32 & 保存用户、会话、项目、任务、版本和审计日志 \\
+Web 容器 & Tomcat 10.1.36 & 后端日志显示应用成功监听 \texttt{8080} 端口 \\
+连接池 & HikariCP & 日志显示连接池初始化完成并成功加入数据库连接 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{测试工具与方法}
+本次测试采用自动化测试与接口实测相结合的方法。后端单元测试通过 Maven Surefire 执行 JUnit 5 测试，覆盖代码结构抽取与安全扫描等基础逻辑；前端单元测试通过 Vitest 执行，覆盖 \texttt{sfc.js} 中的代码解析与风险检测函数。接口功能测试和压力测试采用 PowerShell HTTP 脚本直接访问本地后端接口，这种方式能够携带系统自定义请求头，适合验证 \texttt{X-Auth-Token}、\texttt{X-Project-Id} 与 \texttt{X-Workspace-Key} 共同参与的访问控制链路。测试框架与工具选择分别参考了 JUnit 5 和 Vitest 的官方使用规范（JUnit 5 User Guide）（Vitest Guide）\cite{junit5docs2025}\cite{vitestdocs2025}。
+
+界面层测试以人工回归为主，配合浏览器实际操作检查生成页、历史页和管理页的交互结果。由于当前论文系统的重点是接口链路、状态流转和安全控制，本次未单独编写 Selenium 自动化脚本。测试工具与用途见表 \ref{tab:chapter6-tools}。
+
+\begin{table}[!htbp]
+\centering
+\caption{测试工具与用途}
+\label{tab:chapter6-tools}
+\small
+\begin{tabular}{@{}p{0.20\textwidth}p{0.22\textwidth}p{0.32\textwidth}@{}}
+\toprule
+工具或方式 & 使用位置 & 主要用途 \\
+\midrule
+Maven Surefire + JUnit 5 & 后端单元测试 & 验证 \texttt{SfcCodeExtractor} 与 \texttt{CodeSafetyScanner} 的逻辑正确性 \\
+Vitest & 前端单元测试 & 验证 \texttt{detectUnsafeCode}、SFC 解析与简单状态抽取逻辑 \\
+PowerShell HTTP 脚本 & 接口功能测试、压力测试 & 执行认证、项目、任务、权限与并发请求测试 \\
+浏览器人工回归 & 界面层测试 & 检查登录、生成、历史查询和管理员页面的交互可用性 \\
+后端运行日志 & 环境验证、异常定位 & 检查应用启动、数据库连接和接口执行状态 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+自动化测试执行结果表明，后端共运行 4 个测试用例，全部通过；前端共运行 4 个测试用例，全部通过。后端测试覆盖了代码块抽取和高风险模式阻断，前端测试覆盖了安全检测和代码解析基础逻辑。这些结果为后续接口功能测试提供了较好的底层正确性保证。若从软件质量模型角度看，当前测试重点主要覆盖功能适合性、可靠性和安全性等直接影响原型可用性的质量特征，和 GB/T 25000.10-2016 对系统与软件质量模型的划分方向基本一致（GB/T 25000.10-2016 系统与软件工程 系统与软件质量要求和评价(SQuaRE) 第10部分：系统与软件质量模型）\cite{gbt25000_2016}。
+
+\section{功能测试}
+
+\subsection{测试用例设计}
+功能测试围绕系统主流程与边界控制设计。主流程包括匿名工作区创建、注册登录、身份恢复、项目创建、任务创建和任务查询；边界控制包括无效令牌拦截、普通用户访问管理员接口阻断，以及生成接口限流是否生效。测试用例设计见表 \ref{tab:chapter6-functional-case}。
+
+\begin{table}[!htbp]
+\centering
+\caption{功能测试用例设计与结果}
+\label{tab:chapter6-functional-case}
+\footnotesize
+\begin{tabular}{@{}p{0.11\textwidth}p{0.18\textwidth}p{0.23\textwidth}p{0.20\textwidth}p{0.15\textwidth}@{}}
+\toprule
+编号 & 功能点 & 输入或操作 & 预期结果 & 实际结果 \\
+\midrule
+FT-01 & 匿名工作区创建 & 调用 \texttt{POST /workspaces/anonymous} & 返回新的 \texttt{workspaceKey} & 成功返回工作区标识，通过 \\
+FT-02 & 用户注册与登录身份建立 & 提交用户名和密码到 \texttt{POST /auth/register}，再调用 \texttt{GET /auth/me} & 返回令牌、用户编号、角色和当前用户信息 & 注册成功，\texttt{/auth/me} 返回用户编号、用户名、角色，通过 \\
+FT-03 & 无效令牌拦截 & 使用伪造令牌访问 \texttt{GET /auth/me} & 返回未认证错误 & 返回 \texttt{401 Invalid auth token}，通过 \\
+FT-04 & 项目创建 & 使用合法令牌调用 \texttt{POST /projects} & 返回项目编号、项目名和工作区标识 & 成功返回项目 \texttt{id=3} 和对应工作区，通过 \\
+FT-05 & 生成任务创建 & 在合法项目和工作区下调用 \texttt{POST /generations} & 创建任务并返回 \texttt{PENDING} 状态 & 成功返回 \texttt{taskId=12}、状态 \texttt{PENDING}，通过 \\
+FT-06 & 项目任务列表查询 & 调用 \texttt{GET /projects/\{projectId\}/tasks} & 返回任务分页数据 & 成功返回 1 条任务记录和分页信息，通过 \\
+FT-07 & 普通用户访问管理接口 & 普通用户访问 \texttt{GET /admin/users} & 返回禁止访问错误 & 返回 \texttt{403 Forbidden}，通过 \\
+FT-08 & 生成限流控制 & 同一项目 1 分钟内连续发起 9 次任务创建请求 & 前 8 次成功，第 9 次返回限流错误 & 前 8 次成功，第 9 次返回 \texttt{429 Too many generation requests}，通过 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{测试结果分析}
+功能测试结果表明，系统的核心业务链路已经能够正常闭环运行。匿名工作区创建说明访客上下文初始化机制有效；注册和 \texttt{/auth/me} 接口测试说明服务端会话令牌可以正确建立和恢复；项目创建与任务创建测试说明项目上下文、工作区上下文和任务上下文之间的绑定关系已经正确落库。
+
+从边界控制结果看，无效令牌会被立即拦截，普通用户无法访问管理接口，同一项目在短时间内连续发起生成请求会触发限流。这些测试结果与第四章中的安全设计和第五章中的实现逻辑保持一致，说明认证拦截器、权限服务和限流组件已经在实际运行中发挥作用。
+
+需要说明的是，本次功能测试重点验证了任务创建和任务查询链路，而未将“模型返回代码并完成版本保存”作为统一可重复测试项。原因在于流式生成结果会受到外部模型服务状态影响，其不适合作为每次本地测试都完全一致的基准项。对于论文系统而言，更重要的是验证在第三方依赖参与之前，本地任务状态流转、上下文校验和接口控制是否正确，这部分结果已经得到验证。
+
+\section{性能测试}
+
+\subsection{性能测试方案}
+性能测试选取两个不依赖外部模型的典型接口作为观察对象。其一是 \texttt{GET /projects}，代表认证后的常规读操作；其二是 \texttt{POST /projects}，代表典型写操作。两类接口都需要经过服务端认证校验和数据库访问，因此能够较为直接地反映系统在当前单机部署模式下的接口处理能力。
+
+测试采用并发 10、30、50 三组负载，每组负载分别执行固定数量的请求。读接口每组执行请求数量为并发数的 5 倍，写接口每组执行请求数量为并发数的 3 倍。统计指标包括成功请求数、平均响应时间、95\% 响应时间、最大响应时间和吞吐量。这里的吞吐量以每秒成功请求数表示，用于反映后端在当前环境中的整体处理效率。
+
+\subsection{压力测试结果}
+读接口 \texttt{GET /projects} 的测试结果见表 \ref{tab:chapter6-performance-read}。结果显示，在并发从 10 提升到 50 的过程中，系统的平均响应时间仍保持在 100 ms 以内，95\% 响应时间也控制在约 103 ms 以内，说明项目列表接口在当前数据规模下具备较好的读取性能。
+
+\begin{table}[!htbp]
+\centering
+\caption{读接口压力测试结果}
+\label{tab:chapter6-performance-read}
+\small
+\begin{tabular}{@{}p{0.13\textwidth}p{0.13\textwidth}p{0.13\textwidth}p{0.16\textwidth}p{0.16\textwidth}p{0.16\textwidth}@{}}
+\toprule
+并发数 & 请求数 & 成功数 & 平均响应时间/ms & P95/ms & 吞吐量/req/s \\
+\midrule
+10 & 50 & 50 & 33.49 & 57.78 & 270.73 \\
+30 & 150 & 150 & 70.89 & 108.71 & 405.98 \\
+50 & 250 & 250 & 68.61 & 102.78 & 693.38 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+写接口 \texttt{POST /projects} 的测试结果见表 \ref{tab:chapter6-performance-write}。随着并发提升，平均响应时间和 P95 响应时间都有明显上升，说明数据库写入和事务提交在高并发条件下成为更主要的耗时来源。不过在并发 50 条件下，请求仍然全部成功，吞吐量仍保持在 300 req/s 以上，表明当前单机原型系统仍具有较好的写入稳定性。
+
+\begin{table}[!htbp]
+\centering
+\caption{写接口压力测试结果}
+\label{tab:chapter6-performance-write}
+\small
+\begin{tabular}{@{}p{0.13\textwidth}p{0.13\textwidth}p{0.13\textwidth}p{0.16\textwidth}p{0.16\textwidth}p{0.16\textwidth}@{}}
+\toprule
+并发数 & 请求数 & 成功数 & 平均响应时间/ms & P95/ms & 吞吐量/req/s \\
+\midrule
+10 & 30 & 30 & 34.97 & 56.06 & 251.05 \\
+30 & 90 & 90 & 73.78 & 98.41 & 343.86 \\
+50 & 150 & 150 & 138.74 & 204.07 & 301.26 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{性能结果分析}
+从读接口结果看，系统在高于 30 并发时仍然保持稳定响应，吞吐量随并发数上升而继续提高。这说明项目列表查询主要受数据库读取和序列化开销影响，在当前数据规模下尚未出现明显瓶颈。由于该接口只读且返回数据结构较简单，因此它能够较好反映基础认证链路和数据库读取路径的处理能力。
+
+从写接口结果看，响应时间随并发提升而上升更明显，特别是在并发 50 时平均响应时间达到 138.74 ms，P95 响应时间达到 204.07 ms。这一现象符合数据库写请求的常见特点，即事务提交、索引维护和连接竞争会随并发增加而放大延迟。尽管如此，本次测试没有出现请求失败，说明后端控制器、服务层和数据库连接池在当前规模下仍能够稳定处理项目写入操作。
+
+本章没有将流式生成接口作为纯性能基准，原因有两点。其一，生成链路包含第三方模型调用，外部网络与模型服务状态会对响应时间产生显著影响。其二，系统本身对生成请求设置了每分钟 8 次的限流策略，目的是控制成本和防止重复触发，而不是追求该接口的最高并发吞吐。因此，对生成链路的测试重点更适合放在稳定性与限流有效性验证上，而不是与普通 CRUD 接口放在同一压力测试口径下。
+
+\section{安全测试}
+
+\subsection{SQL 注入攻击模拟测试}
+SQL 注入和脚本注入是 Web 系统中较为常见的风险类型（OWASP Top 10: The Ten Most Critical Web Application Security Risks）\cite{owasp2021top10}。当前系统后端主要使用 Spring Data JPA 的派生查询方法，不直接拼接原始 SQL 字符串，因此认证查询、用户检索和项目检索天然具备一定的参数化保护能力。
+
+本次测试将经典注入字符串 \texttt{' OR '1'='1} 作为用户名，配合合法长度的密码提交到 \texttt{POST /auth/login}。测试结果显示，系统未出现绕过认证的情况，而是返回 \texttt{401 Invalid username or password}。该结果说明注入字符串被作为普通文本处理，没有影响查询条件结构，认证链路不存在直接的 SQL 注入绕过问题。
+
+\subsection{XSS 与脚本注入模拟测试}
+对本系统而言，XSS 风险主要体现在“生成代码是否可能在预览或保存阶段执行危险脚本”这一问题上。为此，系统在后端使用 \texttt{CodeSafetyScanner} 对生成结果做高风险规则匹配，在前端使用 \texttt{detectUnsafeCode} 对预览代码再次做拦截。该双层控制与安全设计章节中的方案一致。
+
+本次测试构造了包含远程脚本标签的恶意组件代码：
+\begin{quote}
+\small
+\begin{verbatim}
+<template><div>demo</div></template>
+<script src="https://evil.example/x.js"></script>
+<style scoped></style>
+\end{verbatim}
+\end{quote}
+
+前端检测结果返回 \texttt{blocked=true}，说明该类脚本注入代码在进入预览环节之前就会被识别并阻断。与此同时，后端单元测试 \texttt{CodeSafetyScannerTest} 中关于高风险模式阻断的用例也已通过，说明远程脚本、远程导入、\texttt{eval} 和网络请求等规则在服务端侧同样有效。
+
+安全测试结果汇总见表 \ref{tab:chapter6-security}。
+
+\begin{table}[!htbp]
+\centering
+\caption{安全测试结果汇总}
+\label{tab:chapter6-security}
+\small
+\begin{tabular}{@{}p{0.18\textwidth}p{0.26\textwidth}p{0.22\textwidth}p{0.22\textwidth}@{}}
+\toprule
+测试类型 & 测试输入 & 预期结果 & 实际结果 \\
+\midrule
+SQL 注入模拟 & 用户名 \texttt{' OR '1'='1}，密码 \texttt{123456}，请求 \texttt{/auth/login} & 不应绕过认证，应返回失败结果 & 返回 \texttt{401 Invalid username or password}，通过 \\
+无效令牌访问 & 伪造 \texttt{X-Auth-Token} 请求 \texttt{/auth/me} & 不应恢复用户身份，应返回未认证错误 & 返回 \texttt{401 Invalid auth token}，通过 \\
+普通用户访问管理接口 & 普通用户请求 \texttt{/admin/users} & 不应获得管理数据，应返回禁止访问 & 返回 \texttt{403 Forbidden}，通过 \\
+脚本注入模拟 & 组件代码包含远程 \texttt{<script src>} & 应在预览前识别并阻断 & 前端检测结果为 \texttt{blocked=true}，通过 \\
+生成限流保护 & 同一项目 1 分钟内第 9 次创建请求 & 应触发限流保护 & 返回 \texttt{429 Too many generation requests}，通过 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+需要指出的是，当前安全测试主要验证了规则型拦截和权限边界是否有效，还未覆盖更复杂的浏览器事件型 XSS、富文本场景或跨域组合攻击。这与论文原型系统的边界有关。当前系统的主要风险暴露面是“生成代码”和“接口访问控制”，因此本章的安全测试重点也围绕这两部分展开。从结果看，现有安全控制已经能够覆盖当前实现中的主要高风险路径。
+
+\section{测试结论}
+综合功能测试、性能测试和安全测试的结果，可以得出以下结论。
+
+系统在当前单机部署环境下已经能够稳定完成匿名工作区创建、用户注册登录、身份恢复、项目创建、任务创建和任务查询等核心流程。接口上下文依赖的认证令牌、项目编号和工作区编号能够被正确识别，说明前后端协同链路已经基本打通。
+
+系统在本地环境下表现出较好的接口性能。项目列表查询在并发 50 条件下仍保持约 69 ms 的平均响应时间，项目创建接口在并发 50 条件下全部成功，说明当前原型系统能够支撑中等规模的并发访问。对于生成接口，系统通过限流机制主动约束高频调用，以控制第三方模型成本和防止重复触发，这一策略在测试中已经被验证有效。
+
+系统的安全控制在当前实现边界内具备较好的有效性。SQL 注入模拟未能绕过认证，普通用户越权访问被阻断，脚本注入型代码在预览前被识别拦截。结合自动化单元测试结果，可以认为系统已经满足论文原型阶段对功能正确性、基础性能和主要安全风险控制的要求，为后续系统优化与扩展提供了可验证的基础。

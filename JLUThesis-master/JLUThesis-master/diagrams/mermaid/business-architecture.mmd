@@ -1,0 +1,44 @@
+%%{init: {"theme":"neutral","flowchart":{"curve":"linear"}}}%%
+flowchart TB
+    subgraph L1[表现层]
+        V1[LoginView]
+        V2[GeneratorView]
+        V3[HistoryView]
+        V4[AdminUsersView]
+        C1[CodeEditorPanel]
+        C2[PreviewSandbox]
+        S1[auth/project/workspace stores]
+        A1[api client 与 SSE 解析]
+    end
+
+    subgraph L2[业务层]
+        B1[AuthController / ProjectController]
+        B2[GenerationController / VersionController]
+        B3[AdminController / CostController]
+        B4[AuthService / AuthorizationService]
+        B5[ProjectService / WorkspaceService]
+        B6[GenerationService / GenerationStreamService]
+        B7[ComponentVersionService / CostControlService]
+        B8[GenerationRateLimiter / GenerationCacheService]
+        B9[QwenLlmClient / SfcCodeExtractor / CodeSafetyScanner]
+    end
+
+    subgraph L3[数据层]
+        D1[JPA Repository]
+        D2[app_user / user_session]
+        D3[workspace / project_space]
+        D4[generation_task / component_version]
+        D5[llm_call_log / audit_log]
+        D6[(MySQL)]
+    end
+
+    L1 --> L2
+    L2 --> D1
+    D1 --> D2
+    D1 --> D3
+    D1 --> D4
+    D1 --> D5
+    D2 --> D6
+    D3 --> D6
+    D4 --> D6
+    D5 --> D6

@@ -1,0 +1,48 @@
+%%{init: {"theme":"neutral","flowchart":{"curve":"linear"}}}%%
+flowchart TB
+    guest[访客]
+    user[注册用户]
+    admin[管理员]
+
+    subgraph SYS[UI 组件生成系统]
+        direction TB
+
+        subgraph SG[访客功能]
+            direction LR
+            UC1([注册与登录])
+            UC2([创建匿名工作区])
+        end
+
+        subgraph SU[用户功能]
+            direction LR
+            UC3([项目管理])
+            UC4([组件生成])
+            UC5([结果接收])
+            UC6([在线预览])
+            UC7([版本查看与下载])
+            UC8([重新生成])
+        end
+
+        subgraph SA[管理功能]
+            direction LR
+            UC9([用户查询])
+            UC10([角色调整])
+            UC11([账号启停])
+            UC12([审计查看])
+        end
+    end
+
+    guest --> UC1
+    guest --> UC2
+
+    user --> UC3
+    user --> UC4
+    user --> UC5
+    user --> UC6
+    user --> UC7
+    user --> UC8
+
+    admin --> UC9
+    admin --> UC10
+    admin --> UC11
+    admin --> UC12

@@ -1,5 +1,7 @@
 import { apiRequest, streamSse } from "@/api/client";
 
+const PROJECT_ID_KEY = "uigen_project_id";
+
 export function createAnonymousWorkspace() {
   return apiRequest("/workspaces/anonymous", { method: "POST" });
 }
@@ -32,7 +34,11 @@ export function regenerateGenerationTask(taskId, workspaceKey) {
 }
 
 export function listWorkspaceTasks(workspaceKey, page = 0, size = 10) {
-  return apiRequest(`/workspaces/me/tasks?page=${page}&size=${size}`, { workspaceKey });
+  const projectId = localStorage.getItem(PROJECT_ID_KEY);
+  if (!projectId) {
+    throw new Error("No active project");
+  }
+  return apiRequest(`/projects/${projectId}/tasks?page=${page}&size=${size}`, { workspaceKey });
 }
 
 export function listTaskVersions(taskId, workspaceKey) {

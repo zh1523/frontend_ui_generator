@@ -19,6 +19,7 @@ export const useGeneratorDraftStore = defineStore("generatorDraft", {
     prompt: "",
     componentName: "UserTable",
     constraints: "{}",
+    includeDemoData: true,
     initialized: false
   }),
   actions: {
@@ -31,10 +32,12 @@ export const useGeneratorDraftStore = defineStore("generatorDraft", {
         this.prompt = draft.prompt || "";
         this.componentName = draft.componentName || "UserTable";
         this.constraints = draft.constraints || "{}";
+        this.includeDemoData = draft.includeDemoData !== false;
       } else {
         this.prompt = "A user table with search box and pagination";
         this.componentName = "UserTable";
         this.constraints = "{}";
+        this.includeDemoData = true;
       }
       this.initialized = true;
     },
@@ -42,12 +45,14 @@ export const useGeneratorDraftStore = defineStore("generatorDraft", {
       this.prompt = payload.prompt ?? this.prompt;
       this.componentName = payload.componentName ?? this.componentName;
       this.constraints = payload.constraints ?? this.constraints;
+      this.includeDemoData = payload.includeDemoData ?? this.includeDemoData;
       localStorage.setItem(
         DRAFT_KEY,
         JSON.stringify({
           prompt: this.prompt,
           componentName: this.componentName,
-          constraints: this.constraints
+          constraints: this.constraints,
+          includeDemoData: this.includeDemoData
         })
       );
     }

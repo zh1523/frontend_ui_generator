@@ -1,0 +1,245 @@
+\chapter{相关技术基础}
+
+\section{系统架构选择}
+本项目的业务目标是完成自然语言需求输入、代码生成、在线预览和结果下载。用户主要通过浏览器访问系统，核心操作都发生在 Web 页面中。基于这一使用方式，系统在总体架构上采用 B/S 模式，并以单体服务承载主要业务能力。
+
+B/S 架构在当前课题阶段更符合目标边界。用户不需要安装专用客户端，系统部署、升级和维护成本较低，适合课程设计和中小规模项目快速落地。相比之下，C/S 架构虽然在本地性能和离线能力方面有一定优势，但会增加安装、升级和多平台兼容成本。微服务架构更适合业务规模较大、团队分工清晰的场景，若在课题初期就采用该方案，会引入更多服务拆分、接口治理和运维协调问题。
+
+从工程研究视角看，任务完成率并不只取决于模型本身，系统编排方式和接口边界同样会显著影响结果稳定性（SWE-bench: Can Language Models Resolve Real-World GitHub Issues?）\cite{jimenez2024swebench}。代理式软件工程研究也指出，模型与环境之间的接口质量会直接影响多步骤任务执行成功率（SWE-agent: Agent-Computer Interfaces Enable Automated Software Engineering）\cite{yang2024sweagent}。因此，本课题在架构层优先强调链路清晰、边界可控和状态一致，而不是追求过早的大规模拆分。
+
+\begin{table}[htbp]
+\centering
+\caption{架构模式与本课题适配性对比}
+\label{tab:chapter2-arch-compare}
+\small
+\begin{tabular}{@{}p{0.18\textwidth}p{0.16\textwidth}p{0.16\textwidth}p{0.22\textwidth}@{}}
+\toprule
+维度 & B/S 单体 & C/S 架构 & 微服务架构 \\
+\midrule
+用户接入成本 & 低 & 中到高 & 低 \\
+部署与运维复杂度 & 低到中 & 中 & 高 \\
+开发联调成本 & 低 & 中 & 高 \\
+状态一致性维护 & 容易保持 & 中 & 依赖分布式机制 \\
+当前课题适配度 & 高 & 中 & 中 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+从技术组织方式看，B/S 单体架构适合将前端交互、后端业务处理、模型调用、结果后处理和数据持久化组织为一条完整链路。这样的结构有利于降低部署门槛，也便于保证任务状态、结果存储和用户会话在同一系统边界内保持一致。对于本课题这类功能边界明确、并发规模有限的系统而言，这种架构能够在实现效率与稳定性之间取得较为平衡的结果。
+
+\begin{figure}[htbp]
+\centering
+\fbox{
+\begin{minipage}{0.92\textwidth}
+\centering
+前端交互层（需求输入 / 历史查询 / 预览下载）
+$\rightarrow$
+业务处理层（任务创建 / 状态管理 / 权限控制）
+$\rightarrow$
+模型调用层（流式生成）
+$\rightarrow$
+结果处理层（结构提取 / 安全校验）
+$\rightarrow$
+数据存储层（任务 / 版本 / 日志）
+\end{minipage}}
+\caption{系统架构与主链路关系示意}
+\label{fig:chapter2-arch-flow}
+\end{figure}
+
+\begin{table}[htbp]
+\centering
+\caption{系统质量目标与架构决策映射}
+\label{tab:chapter2-quality-mapping}
+\small
+\begin{tabular}{@{}p{0.16\textwidth}p{0.28\textwidth}p{0.28\textwidth}@{}}
+\toprule
+质量目标 & 架构决策 & 技术支撑方式 \\
+\midrule
+稳定性 & 单体内闭环、统一状态管理 & 减少跨服务协调成本，便于保证处理顺序一致 \\
+实时性 & 流式输出与异步处理 & 在长耗时生成场景中持续返回中间状态 \\
+可追溯性 & 任务与版本分层存储 & 支持历史查询、结果回看和过程记录 \\
+安全性 & 预览前风险识别与拦截 & 将风险控制前移到代码进入运行环境之前 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section{开发技术栈说明}
+项目技术栈选择围绕“实现效率、功能匹配、后续维护”展开。前端采用 Vue 3、Vite、Element Plus、Pinia，后端采用 Spring Boot、Spring MVC、JPA。前后端通过 REST 与 SSE 协同，以支撑需求输入、生成反馈、结果预览和历史管理等典型场景。相关框架文档对组件化开发、开发服务器、状态管理和工程化配置的能力边界已有较成熟说明（Vue.js Documentation）（Vite Documentation）（Element Plus Documentation）（Pinia Documentation）（Spring Boot Reference Documentation）\cite{vuedocs2025}\cite{vitedocs2025}\cite{elementplusdocs2025}\cite{piniadocs2025}\cite{springbootdocs2025}。
+
+前端技术选型的核心出发点是提高交互连续性和界面组织效率。Vue 3 具有较好的组件化开发能力，能够支持输入区、结果区、预览区和历史区之间的联动更新。Vite 提供较快的开发构建速度，适合需要频繁调整界面与交互的项目。Element Plus 提供表单、表格、提示框和分页等常用组件，可以减少通用界面部件的重复开发工作。Pinia 作为状态管理工具，适合统一维护工作区信息、输入草稿和页面共享状态。
+
+后端技术选型则更加关注业务组织效率和分层清晰度。Spring Boot 提供自动配置和工程化集成能力，适合快速搭建中小型 Web 系统。Spring MVC 适合构建清晰的控制层与服务层边界，便于组织认证、任务处理、历史查询和管理能力。JPA 适合处理结构稳定、关系明确的业务数据对象，可降低常规增删改查和分页查询的实现成本。对于需要实时反馈的场景，REST 接口与 SSE 结合能够同时覆盖普通请求和长连接反馈两类交互方式。
+
+从技术基础角度看，前端框架、后端框架、状态管理、持久化技术和流式通信协议共同构成了系统实现的主要支撑。这些技术并不是孤立选择的，而是围绕“输入需求、生成代码、在线反馈、结果保存”这一核心链路形成组合关系。
+
+\begin{table}[htbp]
+\centering
+\caption{前端技术选型与需求映射}
+\label{tab:chapter2-fe-mapping}
+\small
+\begin{tabular}{@{}p{0.16\textwidth}p{0.26\textwidth}p{0.30\textwidth}@{}}
+\toprule
+技术项 & 对应需求 & 主要作用 \\
+\midrule
+Vue 3 & 组件化页面与预览联动 & 支持复杂界面拆分、状态联动与响应式更新 \\
+Vite & 快速开发与调试 & 提供高效构建、热更新和开发调试能力 \\
+Element Plus & 表单、表格、分页与告警提示 & 提供通用交互组件，降低界面实现成本 \\
+Pinia & 工作区与草稿状态管理 & 统一管理页面共享状态与持久化数据 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[htbp]
+\centering
+\caption{后端技术选型与需求映射}
+\label{tab:chapter2-be-mapping}
+\small
+\begin{tabular}{@{}p{0.20\textwidth}p{0.24\textwidth}p{0.28\textwidth}@{}}
+\toprule
+技术项 & 对应需求 & 主要作用 \\
+\midrule
+Spring Boot + MVC & Web 服务与接口输出 & 支持分层组织、接口开发和统一配置管理 \\
+JPA & 关系数据持久化与分页查询 & 简化实体映射和常规数据访问操作 \\
+异步处理机制 & 长耗时生成任务不阻塞主流程 & 支持任务执行与请求线程解耦 \\
+统一异常与日志 & 错误定位与请求追踪 & 提高系统可观测性和问题分析效率 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[htbp]
+\centering
+\caption{主要接口类型与作用}
+\label{tab:chapter2-api-map}
+\small
+\begin{tabular}{@{}p{0.30\textwidth}p{0.20\textwidth}p{0.24\textwidth}@{}}
+\toprule
+接口类型 & 作用 & 适用场景 \\
+\midrule
+工作区与身份接口 & 建立用户访问上下文 & 匿名进入、登录状态恢复、用户识别 \\
+任务创建接口 & 提交生成请求并返回任务标识 & 组件生成任务创建与参数提交 \\
+流式反馈接口 & 持续返回处理中间状态与结果片段 & 长耗时生成、实时进度反馈 \\
+历史查询接口 & 返回任务或版本列表 & 历史回看、结果筛选与版本检索 \\
+下载交付接口 & 提供文件导出能力 & 生成结果下载与本地保存 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section{数据库技术选型}
+数据库选型依据来自数据关系与一致性要求。系统中的用户上下文、任务记录、结果版本和调用日志之间存在稳定关联，且任务状态和结果存储需要较好的一致性保证。结合这一特征，MySQL 作为主库更适合当前项目。
+
+若将 MongoDB 作为主库，文档模型在弱结构场景中灵活性更高，但本系统对象结构已经较稳定，并且存在明确的关联查询需求。Redis 在高性能缓存和限流计数方面优势明显，但不适合作为结果数据的主要存储方案。因此，在技术选型层面，MySQL 更适合作为核心业务数据的主要载体，而 Redis 更适合作为后续扩展中的缓存或限流辅助组件。
+
+从数据组织特征看，系统需要管理用户访问上下文、生成任务、版本结果和调用日志等多类数据。它们之间既有清晰的主从关系，也有较强的一致性要求。关系型数据库更适合在这类场景下保证数据结构稳定、查询路径明确，并支持按条件筛选、分页和排序等常用操作。
+
+\begin{table}[htbp]
+\centering
+\caption{数据库方案对比与取舍}
+\label{tab:chapter2-db-compare}
+\small
+\begin{tabular}{@{}p{0.20\textwidth}p{0.14\textwidth}p{0.16\textwidth}p{0.18\textwidth}@{}}
+\toprule
+维度 & MySQL & MongoDB & Redis \\
+\midrule
+关系建模能力 & 强 & 中 & 弱 \\
+事务一致性支持 & 强 & 中 & 弱到中 \\
+复杂查询与分页 & 强 & 中 & 弱 \\
+在本课题中的定位 & 主库 & 可选扩展 & 缓存/限流扩展 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[htbp]
+\centering
+\caption{核心数据类型职责与设计要点}
+\label{tab:chapter2-table-design}
+\small
+\begin{tabular}{@{}p{0.20\textwidth}p{0.26\textwidth}p{0.24\textwidth}@{}}
+\toprule
+数据类型 & 主要职责 & 关键设计点 \\
+\midrule
+工作区数据 & 隔离不同访问上下文，维护会话边界 & 需要唯一标识和状态字段支持 \\
+任务数据 & 记录一次生成过程的生命周期 & 需要状态字段与时间信息支持过程管理 \\
+版本数据 & 保存可回看、可下载的结果内容 & 需要版本编号和结果内容关联 \\
+调用日志数据 & 记录模型调用性能与成本信息 & 需要支持统计分析与后续追踪 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+此外，数据库索引通常围绕高频查询路径配置，例如按时间倒序的历史查询、按任务范围的版本查询以及按用户范围的数据筛选。这样的设计能够在不显著增加结构复杂度的前提下改善常用查询路径的响应效率。
+
+\section{关键算法或协议}
+本系统关键技术的目标是将模型输出转化为可交付组件。由于模型结果存在不确定性，系统没有采用“直接透传”方式，而是采用“提示约束 + 结构化抽取 + 安全扫描 + 协议化反馈”的组合方案。
+
+在生成阶段，系统通过提示词约束模型输出符合单文件组件结构的内容，并尽量减少无关文本和结构缺失。UI 代码生成研究显示，模型在结构完整性和细节一致性上仍有误差，后处理机制是保证可交付性的必要条件（Design2Code: How Far Are We From Automating Front-End Engineering?）\cite{si2024design2code}。
+
+在解析阶段，系统会对模型结果进行结构化提取，将模板、脚本和样式等部分从原始输出中分离出来。若模型输出结构不完整，还需要使用兜底补全策略保证结果能够继续进入后续预览和存储流程。这一机制的作用是降低生成不稳定带来的流程中断概率。
+
+在安全阶段，系统会对生成代码执行规则扫描，重点识别动态执行、远程脚本、远程导入和非预期网络访问等高风险模式。若命中阻断规则，结果不再继续进入预览或存储流程。将风险控制前移到生成后、执行前的做法符合安全工程实践（Secure Software Development Framework (SSDF) Version 1.1）\cite{nistssdf2024}。
+
+在通信协议层，系统使用 SSE 推送任务进度和中间结果。SSE 属于基于 HTTP 的单向实时推送机制，适合服务端持续向浏览器发送文本事件。相较于传统轮询，这种方式可以减少请求开销，并为长耗时生成任务提供更连续的反馈体验。
+
+\begin{table}[htbp]
+\centering
+\caption{SSE 事件协议定义}
+\label{tab:chapter2-sse-events}
+\small
+\begin{tabular}{@{}p{0.18\textwidth}p{0.22\textwidth}p{0.30\textwidth}@{}}
+\toprule
+事件名 & 作用 & 一般处理方式 \\
+\midrule
+\texttt{started} & 通知任务开始 & 更新界面状态，提示任务进入执行阶段 \\
+\texttt{token} & 传输增量文本 & 追加显示中间输出内容 \\
+\texttt{partial\_code} & 返回中间代码快照 & 刷新中间结果展示区 \\
+\texttt{final\_code} & 返回最终版本代码 & 用最终结果替换中间展示内容 \\
+\texttt{error} & 返回错误信息 & 提示任务失败原因并停止等待 \\
+\texttt{done} & 通知任务结束 & 结束流式监听并收敛状态 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{figure}[htbp]
+\centering
+\fbox{
+\begin{minipage}{0.92\textwidth}
+\centering
+生成请求进入系统
+$\rightarrow$
+参数校验与限流
+$\rightarrow$
+模型流式输出
+$\rightarrow$
+结构化提取与补全
+$\rightarrow$
+安全扫描
+$\rightarrow$
+结果存储与反馈
+\end{minipage}}
+\caption{关键处理算法的主流程示意}
+\label{fig:chapter2-key-algo-flow}
+\end{figure}
+
+\section{第三方服务集成}
+本项目当前接入的核心第三方能力是大语言模型服务接口。第三方模型服务的接入通常包括模型地址、访问密钥、模型名称和超时参数等配置项。将这些配置与业务逻辑分离，能够降低供应商切换时的改动范围，并提高系统在不同模型服务之间迁移的灵活性。近年来通用模型和代码模型的发展为这类系统提供了可行基础，代表性工作包括 GPT-4、Qwen、Code Llama 与 StarCoder 等（GPT-4 Technical Report）（Qwen Technical Report）（Code Llama: Open Foundation Models for Code）（StarCoder: May the Source Be with You!）\cite{openai2023gpt4}\cite{bai2023qwen}\cite{roziere2023codellama}\cite{li2023starcoder}。
+
+集成设计不仅考虑“是否调用成功”，还需要考虑失败场景处理。模型服务可能出现超时、限流、连接中断或返回格式异常等情况，因此系统需要具备统一错误处理、异常反馈和调用记录能力。调用成功后，通常还需要记录 token 消耗、结束原因和延迟数据，为后续性能优化和成本分析提供基础依据。
+
+从行业实践看，在线生成平台更强调输入到结果的快速闭环（Introducing the new v0）\cite{vercel2026newv0}。代理框架则更强调模型与工具生态的扩展能力（OpenHands: AI-Driven Development）\cite{openhands2026github}。这些实践说明，第三方模型接入不应停留在“发起一次 HTTP 请求”，而应配套状态观测、失败回退和边界控制机制。
+
+结合本课题目标，当前阶段采用“单模型稳定接入”的策略更合适。系统先保证主链路可运行、可观测、可回溯，再在后续阶段考虑多模型路由和策略切换。该策略能够控制实现复杂度，也与课程项目的交付节奏相匹配。
+
+\begin{table}[htbp]
+\centering
+\caption{第三方模型集成中的工程控制点}
+\label{tab:chapter2-thirdparty-controls}
+\small
+\begin{tabular}{@{}p{0.18\textwidth}p{0.28\textwidth}p{0.22\textwidth}@{}}
+\toprule
+控制点 & 当前做法 & 目标价值 \\
+\midrule
+配置管理 & 模型地址与密钥参数化 & 降低供应商耦合 \\
+超时控制 & 请求超时可配置 & 避免长时间阻塞 \\
+错误处理 & 统一异常响应与任务失败标记 & 提升可观测性 \\
+调用记录 & token 与时延持久化 & 支撑成本与性能分析 \\
+\bottomrule
+\end{tabular}
+\end{table}

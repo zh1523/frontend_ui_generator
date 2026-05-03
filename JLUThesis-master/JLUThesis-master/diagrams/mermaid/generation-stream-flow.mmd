@@ -1,0 +1,33 @@
+%%{init: {"theme":"neutral","flowchart":{"curve":"linear"}}}%%
+flowchart TB
+    subgraph P1[任务创建阶段]
+        direction TB
+        A[提交生成需求]
+        B[校验身份、项目归属与请求频率]
+        C[创建生成任务并返回标识]
+        A --> B --> C
+    end
+
+    subgraph P2[流式生成阶段]
+        direction TB
+        D[建立流式连接]
+        E[调用模型生成代码]
+        F[持续回传生成片段]
+        D --> E --> F
+    end
+
+    subgraph P3[结果处理阶段]
+        direction TB
+        G[提取组件结构并执行安全检测]
+        H{检测是否通过}
+        I[保存版本并返回最终结果]
+        J[记录失败原因并返回错误信息]
+        G --> H
+        H -- 是 --> I
+        H -- 否 --> J
+    end
+
+    C --> D
+    F --> G
+    I --> K([流程结束])
+    J --> K
