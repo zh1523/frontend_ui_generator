@@ -1,72 +1,72 @@
-# UI Component Generator - Local Run Guide
+# UI 组件生成器 - 本地运行指南
 
-This project uses JPA + MySQL.
-For local setup, create the database and grant user privileges. JPA will manage tables.
+本项目使用 JPA + MySQL。
+本地搭建时，请先创建数据库并授予用户权限，JPA 会自动管理表结构。
 
-## 1) Database bootstrap
+## 1) 数据库初始化
 
-Run this script in MySQL 8:
+在 MySQL 8 中运行以下脚本：
 
 - [local_setup_mysql.sql](/d:/java/biyesheji/back/sql/local_setup_mysql.sql)
 
-Example:
+示例：
 
 ```sql
 SOURCE d:/java/biyesheji/back/sql/local_setup_mysql.sql;
 ```
 
-Notes:
+说明：
 
-- `spring.jpa.hibernate.ddl-auto=update` is enabled, so JPA will create/update tables automatically.
-- You can inspect and manage tables in Navicat.
+- 已启用 `spring.jpa.hibernate.ddl-auto=update`，因此 JPA 会自动创建/更新表结构。
+- 可以在 Navicat 中查看和管理表。
 
-## 2) Manual configuration you must set
+## 2) 必须手动配置的项
 
-## Backend
+### 后端
 
-Reference files:
+参考文件：
 
 - [application.yml](/d:/java/biyesheji/back/src/main/resources/application.yml)
 - [back/.env.example](/d:/java/biyesheji/back/.env.example)
 
-Required variables:
+必填变量：
 
 - `DB_URL`
 - `DB_USERNAME`
 - `DB_PASSWORD`
 - `LLM_API_KEY`
 
-Recommended values:
+推荐值：
 
 - `DB_URL=jdbc:mysql://localhost:3306/uigen?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC`
 - `DB_USERNAME=uigen_app`
 - `DB_PASSWORD=uigen_app_123456`
 
-Optional variables:
+可选变量：
 
-- `LLM_MODEL` (default `qwen3-coder-plus`)
-- `CORS_ALLOWED_ORIGINS` (default `http://localhost:5173`)
-- `LLM_TIMEOUT_MS` (default `60000`)
+- `LLM_MODEL`（默认 `qwen3-coder-plus`）
+- `CORS_ALLOWED_ORIGINS`（默认 `http://localhost:5173`）
+- `LLM_TIMEOUT_MS`（默认 `60000`）
 
-## Frontend
+### 前端
 
-Reference file:
+参考文件：
 
 - [front/.env.example](/d:/java/biyesheji/front/.env.example)
 
-Required:
+必填：
 
 - `VITE_API_BASE=http://localhost:8080/api/v1`
 
-## 3) Startup order
+## 3) 启动顺序
 
-1. Start MySQL and run `local_setup_mysql.sql`.
-2. Start backend.
-3. Start frontend.
+1. 启动 MySQL 并运行 `local_setup_mysql.sql`。
+2. 启动后端。
+3. 启动前端。
 
-## 4) Start commands (Windows PowerShell)
+## 4) 启动命令（Windows PowerShell）
 
-Backend terminal:
+后端终端：
 
 ```powershell
 cd d:\java\biyesheji\back
@@ -77,7 +77,7 @@ $env:LLM_API_KEY="your_dashscope_key"
 mvn spring-boot:run
 ```
 
-Frontend terminal:
+前端终端：
 
 ```powershell
 cd d:\java\biyesheji\front
@@ -86,23 +86,23 @@ $env:VITE_API_BASE="http://localhost:8080/api/v1"
 npm run dev
 ```
 
-Open:
+打开：
 
 - `http://localhost:5173`
 
-## 5) Verification checklist
+## 5) 验证清单
 
-- Backend starts without schema validation errors.
-- Tables are auto-created by JPA.
-- Frontend can create workspace and receive SSE generation stream.
-- MySQL has data in:
+- 后端启动无 schema 校验错误。
+- JPA 自动创建表。
+- 前端能创建工作区并接收 SSE 生成流。
+- MySQL 中以下表有数据：
   - `workspace`
   - `generation_task`
   - `component_version`
   - `llm_call_log`
 
-## 6) Common issues
+## 6) 常见问题
 
-- CORS error: check `CORS_ALLOWED_ORIGINS`.
-- LLM auth error: check `LLM_API_KEY`.
-- DB connection error: check MySQL service and DB credentials.
+- CORS 错误：检查 `CORS_ALLOWED_ORIGINS`。
+- LLM 认证错误：检查 `LLM_API_KEY`。
+- 数据库连接错误：检查 MySQL 服务和数据库凭据。
